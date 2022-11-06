@@ -1,0 +1,99 @@
+{
+  "name": "Moeki Kawakami",
+  "title": "Moeki Kawakami",
+  "description": "Hi. I'm Moeki Kawakami, web developer in Japan.",
+  "vision": {
+    "title": "Technology for Living Your Own Way",
+    "description": "I have been saved by technology. However, it has not saved my life or solved my problems. It has nurtured my creativity. Photography, music and software. Without computer technology, I would never have been able to actually put the ideas in my head into reality. It was a world where we could show our photos to many people without exhibition, and where we could make music without playing an instrument. I want to give back to computer technology."
+  },
+  "values": [
+    "Starting with myself to improve my team",
+    "Starting with my neighbors to create a culture",
+    "Making minimal product first to get feedback",
+    "Looking at our daily development",
+    "Solving our own problems in our own way"
+  ],
+  "bio": [
+    {
+      "year": 1996,
+      "content": "Born in Tochigi, Japan"
+    },
+    {
+      "year": 2019,
+      "content": "B.S. in Electronics and Informatics, Kanazawa University, Kanazawa, Japan"
+    },
+    {
+      "year": 2019,
+      "content": "Joined Colorful Company,Inc."
+    }
+  ],
+  "links": [
+    {
+      "name": "Github",
+      "accounts": [
+        { "name": "@cc-kawakami", "url": "https://github.com/cc-kawakami" },
+        { "name": "@moekidev", "url": "https://github.com/moekidev" }
+      ]
+    },
+    {
+      "name": "DEV Community (Posts)",
+      "accounts": [{ "name": "@moekidev", "url": "https://dev.to/moekidev" }]
+    },
+    {
+      "name": "RubyGems",
+      "accounts": [
+        {
+          "name": "cc-kawakami",
+          "url": "https://rubygems.org/profiles/cc-kawakami"
+        }
+      ]
+    },
+    {
+      "name": "npm",
+      "accounts": [
+        { "name": "moekidev", "url": "https://www.npmjs.com/~moekidev" }
+      ]
+    },
+    {
+      "name": "Twitter",
+      "accounts": [
+        { "name": "@moekidev", "url": "https://twitter.com/moekidev" }
+      ]
+    },
+    {
+      "name": "Instagram",
+      "accounts": [
+        { "name": "@moekidev", "url": "https://instagram.com/moeki.dev" }
+      ]
+    },
+    {
+      "name": "SoundCloud",
+      "accounts": [
+        {
+          "name": "kawakami-moeki",
+          "url": "https://soundcloud.com/kawakami-moeki"
+        }
+      ]
+    }
+  ],
+  "topics": [
+    "ruby",
+    "nodejs",
+    "javascript",
+    "ruby-on-rails",
+    "react",
+    "postgresql",
+    "vuejs",
+    "nextjs",
+    "prisma",
+    "docker",
+    "heroku",
+    "render",
+    "vercel",
+    "netlify",
+    "circleci",
+    "gcp",
+    "google-analytics",
+    "google-optimize"
+  ]
+}
