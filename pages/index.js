@@ -1,3 +1,5 @@
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
 import SEO from '../components/seo.jsx'
 import Header from '../components/header.jsx'
 import Vision from '../components/vision.jsx'
@@ -8,11 +10,11 @@ import Links from '../components/links.jsx'
 import Footer from '../components/footer.jsx'
 import Contact from '../components/contact.jsx'
 
-export default function Home() {
+export default function Home(props) {
   return (
     <>
       <SEO />
-      <Header />
+      <Header likeCount={props.likeCount} />
       <Vision />
       <Values />
       <Bio />
@@ -22,4 +24,11 @@ export default function Home() {
       <Footer />
     </>
   )
+}
+
+export async function getServerSideProps(context) {
+  const likeCount = await prisma.like.count()
+  return {
+    props: { likeCount: likeCount }
+  }
 }
