@@ -6,6 +6,7 @@ import Bio from '../components/bio.jsx'
 import Topics from '../components/topics.jsx'
 import Links from '../components/links.jsx'
 import Footer from '../components/footer.jsx'
+import Contact from '../components/contact.jsx'
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Values />
       <Bio />
       <Topics />
+      <Contact />
       <Links />
       <Footer />
     </>
