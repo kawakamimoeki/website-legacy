@@ -3,15 +3,21 @@
   "title": "Moeki Kawakami",
   "description": "Hi. I'm Moeki Kawakami, web developer in Japan.",
   "vision": {
-    "title": "Technology for Living Your Own Way",
-    "description": "I have been saved by technology. However, it has not saved my life or solved my problems. It has nurtured my creativity. Photography, music and software. Without computer technology, I would never have been able to actually put the ideas in my head into reality. It was a world where we could show our photos to many people without exhibition, and where we could make music without playing an instrument. I want to give back to computer technology."
+    "title": "Beautiful Product First",
+    "items": [
+      "Beautiful product solve problems",
+      "Beautiful product are fun",
+      "Beautiful product is versatile",
+      "Beautiful product ask questions",
+      "Beautiful product connect people"
+    ]
   },
   "values": [
-    "Starting with myself to improve my team",
-    "Starting with my neighbors to create a culture",
-    "Making minimal product first to get feedback",
-    "Looking at our daily development",
-    "Solving our own problems in our own way"
+    "Good health",
+    "Sympathize with my neighbors",
+    "Love my product myself",
+    "Beautiful architecture",
+    "Simple workflow"
   ],
   "bio": [
     {

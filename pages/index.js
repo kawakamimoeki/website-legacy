@@ -18,7 +18,6 @@ export default function Home(props) {
       <Vision />
       <Values />
       <Bio />
-      <Topics />
       <Contact />
       <Links />
       <Footer />
