@@ -1,8 +1,7 @@
 import text from '../data/text.json'
 import Image from 'next/image'
-import Like from './like.jsx'
 
-export default function Component(props) {
+export default function Component() {
   return (
     <>
       <h1 className="text-3xl mb-1 font-bold">{text.title}</h1>
@@ -14,7 +13,6 @@ export default function Component(props) {
         height="100"
         className="inline rounded-full my-4 border-4 border-gray-700 bg-gray-700"
       />
-      <Like likeCount={props.likeCount} />
     </>
   )
 }
