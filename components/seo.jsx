@@ -4,6 +4,10 @@ import Head from 'next/head'
 export default function component() {
   return (
     <Head>
+      <script
+        defer
+        data-domain="moeki.dev"
+        src="https://plausible.io/js/script.js"></script>
       <title>{text.title}</title>
       <meta name="description" content={text.description} />
       <meta property="og:url" content="https://moeki.dev" />
