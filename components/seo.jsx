@@ -15,7 +15,7 @@ export default function component() {
       <meta property="og:site_name" content={text.title} />
       <meta property="og:description" content={text.description} />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content="/me.jpg" />
+      <meta property="og:image" content="https://moeki.dev/me.jpg" />
     </Head>
   )
 }
