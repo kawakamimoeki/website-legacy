@@ -46,6 +46,16 @@
       "accounts": [{ "name": "@moekidev", "url": "https://dev.to/moekidev" }]
     },
     {
+      "name": "Zenn",
+      "accounts": [{ "name": "moekidev", "url": "https://zenn.dev/moekidev" }]
+    },
+    {
+      "name": "Medium",
+      "accounts": [
+        { "name": "@moekidev", "url": "https://medium.com/@moekidev" }
+      ]
+    },
+    {
       "name": "RubyGems",
       "accounts": [
         {
