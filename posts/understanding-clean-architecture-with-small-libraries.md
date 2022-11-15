@@ -9,7 +9,7 @@ After about 5 laps around Clean architecture since I came across [hanami/hanami:
 
 When using a framework, the outer moat of the Usecase in the [diagram](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) is filled in: Controller, View, and Model in the case of MVC, and Repository in the case of other patterns. Personally, I feel that if all three layers from the inner layer are integrated, they are the center of the application.
 
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mzqhhydozh3asm2q88fu.jpg)
+![Image description](/img/clean-architecture.jpg)
 
 So I tried to implement each responsibility of the application using different libraries.
 

@@ -13,7 +13,7 @@ export default function Component() {
       </Title>
       <p>{text.description}</p>
       <Image
-        src="/me.jpg"
+        src="/img/me.jpg"
         alt={text.name}
         width="100"
         height="100"

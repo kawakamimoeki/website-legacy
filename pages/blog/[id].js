@@ -4,6 +4,7 @@ import Date from '../../components/date'
 import Title from '../../components/title'
 import { getPostData, getPostsData } from '../../lib/posts'
 import Link from 'next/link'
+import SEO from '../../components/seo'
 
 export async function getStaticPaths() {
   const postsData = await getPostsData()
@@ -32,6 +33,7 @@ export async function getStaticProps({ params }) {
 export default function Post({ postData }) {
   return (
     <>
+      <SEO />
       <Head>
         <title>{postData.title}</title>
       </Head>
