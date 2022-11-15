@@ -17,7 +17,7 @@ export default function Component() {
         alt={text.name}
         width="100"
         height="100"
-        className="inline rounded-full my-4 border-4 border-gray-700 bg-gray-700"
+        className="inline rounded-full my-4 border-4 border-gray-700 bg-gray-700 dark:bg-white dark:border-white"
       />
     </>
   )
