@@ -1,0 +1,65 @@
+.post p {
+  margin-top: 1.5em;
+}
+
+.post a {
+  text-decoration: underline;
+}
+
+.post blockquote {
+  font-style: italic;
+  opacity: 0.5;
+  border-left: 4px solid #aaa;
+  padding-left: 1em;
+}
+
+.post ul {
+  margin-top: 1em;
+  list-style: disc;
+  list-style-position: inside;
+}
+
+.post li ul {
+  margin-top: 0;
+  margin-left: 2em;
+}
+
+.post hr {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.post h2 {
+  margin-top: 1em;
+  font-weight: bold;
+  font-size: 1.5em;
+  line-height: 1.2em;
+}
+
+.post h3 {
+  margin-top: 1em;
+  font-weight: bold;
+  font-size: 1.4em;
+  line-height: 1.2em;
+}
+
+.post h4 {
+  margin-top: 1em;
+  font-weight: bold;
+  font-size: 1.3em;
+  line-height: 1.2em;
+}
+
+.post h5 {
+  margin-top: 1em;
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 1.2em;
+}
+
+.post h6 {
+  margin-top: 1em;
+  font-weight: bold;
+  font-size: 1.1em;
+  line-height: 1.2em;
+}

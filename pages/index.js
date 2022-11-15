@@ -4,8 +4,18 @@ import Vision from '../components/vision.jsx'
 import Values from '../components/values.jsx'
 import Bio from '../components/bio.jsx'
 import Links from '../components/links.jsx'
-import Footer from '../components/footer.jsx'
 import Contact from '../components/contact.jsx'
+import Blog from '../components/blog.jsx'
+import { getPostsData } from '../lib/posts'
+
+export async function getStaticProps() {
+  const allPostsData = await getPostsData()
+  return {
+    props: {
+      allPostsData
+    }
+  }
+}
 
 export default function Home(props) {
   return (
@@ -15,9 +25,9 @@ export default function Home(props) {
       <Vision />
       <Values />
       <Bio />
+      <Blog posts={props.allPostsData} />
       <Contact />
       <Links />
-      <Footer />
     </>
   )
 }

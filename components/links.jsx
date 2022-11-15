@@ -6,7 +6,7 @@ import { MdCallMade } from 'react-icons/md'
 export default function component() {
   return (
     <div className="mb-5">
-      <Heading text="Links" />
+      <Heading>Links</Heading>
       {text.links.map((link, i) => {
         return (
           <div key={i} className="mb-2  ">
