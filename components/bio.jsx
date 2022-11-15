@@ -8,18 +8,18 @@ export default function component() {
       <Heading>Bio</Heading>
       <dl>
         <div className="flex">
-          <dt className="font-bold mr-4">1996</dt>
+          <dt className="font-bold mr-4 min-w-fit">1996</dt>
           <dd>Born in Tochigi, Japan</dd>
         </div>
         <div className="flex">
-          <dt className="font-bold mr-4">2019</dt>
+          <dt className="font-bold mr-4 min-w-fit">2019</dt>
           <dd>
             B.S. in Electronics and Informatics, Kanazawa University, Kanazawa,
             Japan
           </dd>
         </div>
         <div className="flex">
-          <dt className="font-bold mr-4">2019</dt>
+          <dt className="font-bold mr-4 min-w-fit">2019</dt>
           <dd>
             Joined{' '}
             <Link

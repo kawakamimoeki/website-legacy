@@ -23,11 +23,15 @@ export default function Component({ className, limit, content }) {
                 color: 'hsl(220, 14%, 71%)',
                 fontSize: '15px',
                 padding: '.25em 1em',
+                paddingTop: '1em',
                 borderBottom: '1px solid rgb(106, 106, 106)',
                 borderTopLeftRadius: '4px',
                 borderTopRightRadius: '4px',
                 marginBottom: '-0.8em',
-                width: 'fit-content'
+                width: 'fit-content',
+                maxWidth: '100%',
+                lineHeight: '1.2em',
+                whiteSpace: 'break-spaces'
               }}>
               {filename}
             </p>
