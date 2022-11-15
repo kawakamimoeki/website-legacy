@@ -15,6 +15,6 @@ A possible reason for the actual release of a pattern that performed well in A/B
 
 Of course, it is best to set the final goal, the conversion completion rate, as the target for A/B testing, but there may be cases where the population of conversions is too small to test because the differences in goals are not significantly comparable. This is where guardrail metrics come into play, which is ultimately the same as setting the conversion completion rate as the A/B test goal. In other words, A/B testing will not work if the number of inflows and conversions are considerably low.
 
-I believe this phenomenon often occurs with site changes themselves to begin with. For a website with a clear goal, such as an LP, you should design the story of how the user achieves the goal. This is very important from a macro perspective.
+I believe this phenomenon often occurs with site changes themselves to begin with. For a website with a clear goal, such as an landing page, you should design the story of how the user achieves the goal. This is very important from a macro perspective.
 
 If the number of inflows and conversions are low, we believe it is more effective to make changes to the story, such as fewer pages or a richer main visual, rather than small changes such as button decorations or wording.
