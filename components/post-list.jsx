@@ -13,10 +13,7 @@ export default function Component({ posts }) {
             </Link>
           </h3>
           <Date className="text-sm opacity-50" dateString={date}></Date>
-          <Markdown
-            className="text-sm opacity-60"
-            limit={256}
-            content={content}></Markdown>
+          <Markdown limit={256} content={content}></Markdown>
           <div className="mt-3 text-end">
             <Link
               className="underline decoration-yellow-400 decoration-2 underline-offset-4"
