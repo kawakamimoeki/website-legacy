@@ -7,7 +7,7 @@ export default function Component({ posts }) {
     <ul>
       {posts.map(({ id, date, title, content }) => (
         <li className="py-5 border-2 p-6 my-4 rounded-md" key={id}>
-          <h3 className="text-2xl font-bold">
+          <h3 className="text-3xl font-bold">
             <Link className="underline" href={`/blog/${id}`}>
               {title}
             </Link>
