@@ -5,8 +5,7 @@ export default function component() {
   return (
     <div className="mb-5">
       <Heading>
-        Vision - Technology for{' '}
-        <span className="marker marker-sky">Creativity</span>
+        Technology for <span className="marker marker-sky">Creativity</span>
       </Heading>
       <p>
         I have been saved by technology. However, it has not saved my life or
