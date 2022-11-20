@@ -5,6 +5,8 @@ import Bio from '../components/bio.jsx'
 import Links from '../components/links.jsx'
 import Contact from '../components/contact.jsx'
 import Blog from '../components/blog.jsx'
+import Works from '../components/works'
+import Contributions from '../components/contributions'
 import { getPostsData } from '../lib/posts'
 
 export async function getStaticProps() {
@@ -23,6 +25,8 @@ export default function Home(props) {
       <Header likeCount={props.likeCount} />
       <Vision />
       <Bio />
+      <Works />
+      <Contributions />
       <Blog posts={props.allPostsData} />
       <Contact />
       <Links />
