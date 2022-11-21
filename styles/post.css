@@ -63,3 +63,14 @@
   font-size: 1.1em;
   line-height: 1.2em;
 }
+
+.post table {
+  border: 1px solid #333;
+  margin-top: 20px;
+}
+
+.post th,
+.post td {
+  border: 1px solid #333;
+  padding: 5px 10px;
+}
