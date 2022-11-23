@@ -1,18 +1,11 @@
-import Gh from './gh'
 import Heading from './heading'
+import Repos from './repos'
 
-export default function component() {
+export default function component({ repos }) {
   return (
-    <div className='mb-5'>
-    <Heading>Contributions</Heading>
-    <ul>
-      <li className='py-2'>
-        <Gh repo="forem/forem" />
-      </li>
-      <li className='py-2'>
-        <Gh repo="ElMassimo/vite_ruby" />
-      </li>
-    </ul>
+    <div className="mb-5">
+      <Heading>Contributions</Heading>
+      <Repos repos={repos}></Repos>
     </div>
   )
 }

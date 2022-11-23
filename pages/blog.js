@@ -25,7 +25,7 @@ export default function Blog({ allPostsData }) {
         <p>
           <Dotted>The exploration</Dotted> to product design for productivity.
         </p>
-        <div class="mt-4">
+        <div className="mt-4">
           <PostList posts={allPostsData} />
         </div>
       </section>

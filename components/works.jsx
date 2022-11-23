@@ -1,21 +1,11 @@
-import Gh from './gh'
 import Heading from './heading'
+import Repos from './repos'
 
-export default function component() {
+export default function component({ repos }) {
   return (
     <div className="mb-5">
       <Heading>Works</Heading>
-      <ul>
-        <li className="py-2">
-          <Gh repo="cc-kawakami/micro-admin" />
-        </li>
-        <li className="py-2">
-          <Gh repo="cc-kawakami/uchini" />
-        </li>
-        <li className="py-2">
-          <Gh repo="cc-kawakami/barruun" />
-        </li>
-      </ul>
+      <Repos repos={repos}></Repos>
     </div>
   )
 }
