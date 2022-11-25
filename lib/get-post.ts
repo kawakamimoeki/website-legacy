@@ -1,11 +1,11 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { Post } from '../interfaces/post'
+import { PostType } from '../interfaces/post'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
-export async function getPost(id): Promise<Post> {
+export async function getPost(id): Promise<PostType> {
   const fullPath = path.join(postsDirectory, `${id}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 

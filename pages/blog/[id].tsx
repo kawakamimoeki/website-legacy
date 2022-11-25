@@ -1,23 +1,27 @@
 import * as React from 'react'
 import Head from 'next/head'
-import Markdown from '../../components/markdown'
+import Markdown from '../../components/markdown.jsx'
 import Date from '../../components/date'
 import Title from '../../components/title'
-import { getPost, getPosts } from '../../lib/get-posts'
+import { getPosts } from '../../lib/get-posts'
+import { getPost } from '../../lib/get-post'
 import Link from 'next/link'
 import SEO from '../../components/seo'
-import { Post } from '../../interfaces/post'
+import { PostType } from '../../interfaces/post'
 
 export async function getStaticPaths() {
   const postsData = await getPosts()
+  const paths = postsData.map((d) => {
+    return {
+      params: {
+        id: d.id
+      },
+      locale: 'en'
+    }
+  })
+  paths.push(...paths.map((p) => ({ ...p, locale: 'ja' })))
   return {
-    paths: postsData.map((d) => {
-      return {
-        params: {
-          id: d.id
-        }
-      }
-    }),
+    paths,
     fallback: false
   }
 }
@@ -38,10 +42,9 @@ export async function getStaticProps({
   }
 }
 
-export default function Post({ post }: { post: Post }): JSX.Element {
+export default function Post({ post }: { post: PostType }): JSX.Element {
   return (
     <>
-      <SEO />
       <Head>
         <title>{post.title}</title>
       </Head>
@@ -50,7 +53,8 @@ export default function Post({ post }: { post: Post }): JSX.Element {
       <Markdown content={post.content}></Markdown>
       <Link
         className="underline decoration-yellow-400 decoration-4 underline-offset-4 font-bold block my-6 text-center"
-        href="/blog">
+        href="/blog"
+        passHref>
         ← Back to moeki.dev/blog
       </Link>
     </>

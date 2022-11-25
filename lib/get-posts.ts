@@ -1,10 +1,11 @@
 import fs from 'fs'
 import path from 'path'
 import { getPost } from './get-post'
+import { PostType } from '../interfaces/post'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
-export async function getPosts() {
+export async function getPosts(): Promise<Array<PostType>> {
   const fileNames = fs.readdirSync(postsDirectory)
   const allPostsData = await Promise.all(
     fileNames.map(async (fileName) => {

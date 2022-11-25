@@ -1,9 +1,8 @@
 import React from 'react'
 import Gh from './sections/index/gh'
-import { Repository } from '../interfaces/repository'
 
 type Props = {
-  repos: Array<Repository>
+  repos: Array<Object>
 }
 
 export default function Repos({ repos }: Props) {

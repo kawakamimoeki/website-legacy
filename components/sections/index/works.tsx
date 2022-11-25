@@ -1,10 +1,9 @@
 import React from 'react'
 import Heading from '../../heading'
 import Repos from '../../repos'
-import { Repository } from '../../../interfaces/repository'
 
 type Props = {
-  repos: Array<Repository>
+  repos: Array<Object>
 }
 
 export default function Works({ repos }: Props) {

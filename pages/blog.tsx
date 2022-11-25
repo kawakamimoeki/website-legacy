@@ -1,6 +1,4 @@
 import React from 'react'
-import SEO from '../components/seo'
-import Header from '../components/header'
 import { getPosts } from '../lib/get-posts'
 import PostList from '../components/post-list'
 import Dotted from '../components/dotted'
@@ -20,8 +18,6 @@ export default function Blog({
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
   return (
     <>
-      <SEO />
-      <Header />
       <section className="">
         <h2 className="text-2xl font-bold">
           <span className="marker marker-yellow">Blog</span>

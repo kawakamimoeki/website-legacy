@@ -7,17 +7,11 @@ import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx'
 
 SyntaxHighlighter.registerLanguage('jsx', jsx)
 
-type Props = {
-  content: string
-  className?: string
-  limit?: number
-}
-
-export default function Markdown({ className, limit, content }: Props) {
+export default function Markdown({ className = null, limit = null, content }) {
   const syntaxTheme = oneDark
 
   const MarkdownComponents = {
-    code({ node, inline, className, ...props }): JSX.Element {
+    code: ({ node, inline, className, ...props }) => {
       const match = /language-(\w+)/.exec(className || 'language-plaintext')
       const filename = match ? className?.split(':')[1] ?? undefined : undefined
 
@@ -71,7 +65,9 @@ export default function Markdown({ className, limit, content }: Props) {
       className={'post ' + className}
       remarkPlugins={[remarkGfm]}
       components={MarkdownComponents}>
-      {content.length > limit ? `${content.substring(0, 250)}...` : content}
+      {limit && content.length > limit
+        ? `${content.substring(0, 250)}...`
+        : content}
     </ReactMarkdown>
   )
 }

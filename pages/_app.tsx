@@ -1,3 +1,4 @@
+import SEO from '../components/seo'
 import { ThemeProvider, useTheme } from 'next-themes'
 import { useEffect } from 'react'
 import '../styles/globals.css'
@@ -14,16 +15,19 @@ function MyApp({ Component, pageProps }) {
   }, [setTheme])
 
   return (
-    <ThemeProvider attribute="class">
-      <div
-        className="leading-7 text-gray-900 dark:bg-gray-900 dark:text-white"
-        style={{ wordBreak: 'break-all' }}>
-        <div className="p-7 max-w-2xl mx-auto">
-          <Component {...pageProps} />
-          <Footer />
+    <>
+      <SEO />
+      <ThemeProvider attribute="class">
+        <div
+          className="leading-7 text-gray-900 dark:bg-gray-900 dark:text-white"
+          style={{ wordBreak: 'break-all' }}>
+          <div className="mx-auto max-w-2xl py-8 px-4">
+            <Component {...pageProps} />
+            <Footer />
+          </div>
         </div>
-      </div>
-    </ThemeProvider>
+      </ThemeProvider>
+    </>
   )
 }
 
