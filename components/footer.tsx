@@ -1,4 +1,6 @@
-export default function component() {
+import React from 'react'
+
+export default function Footer() {
   return (
     <footer>
       <p className="mt-6 opacity-50 text-sm text-center">

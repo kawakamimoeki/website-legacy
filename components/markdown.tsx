@@ -1,3 +1,4 @@
+import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter'
@@ -6,11 +7,17 @@ import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx'
 
 SyntaxHighlighter.registerLanguage('jsx', jsx)
 
-export default function Component({ className, limit, content }) {
+type Props = {
+  content: string
+  className?: string
+  limit?: number
+}
+
+export default function Markdown({ className, limit, content }: Props) {
   const syntaxTheme = oneDark
 
   const MarkdownComponents = {
-    code({ node, inline, className, ...props }) {
+    code({ node, inline, className, ...props }): JSX.Element {
       const match = /language-(\w+)/.exec(className || 'language-plaintext')
       const filename = match ? className?.split(':')[1] ?? undefined : undefined
 
@@ -40,8 +47,9 @@ export default function Component({ className, limit, content }) {
             style={syntaxTheme}
             language={match[1]}
             showLineNumbers={false}
-            {...props}
-          />
+            {...props}>
+            {props.children}
+          </SyntaxHighlighter>
         </div>
       ) : (
         <code

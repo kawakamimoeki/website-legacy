@@ -1,14 +1,16 @@
 import { gql } from 'graphql-request'
 import { githubClient } from './github-client'
 
-interface Repository {
+type RepositoryInfo = {
   repo: string
-  owner: number
+  owner: string
 }
 
-const repositoryInfos = async (repositories: Array<Repository>) => {
+export async function githubRepositories(
+  repositoryInfos: Array<RepositoryInfo>
+) {
   return await Promise.all(
-    repositories.map(async (r: Repository): Promise<Object> => {
+    repositoryInfos.map(async (r: RepositoryInfo): Promise<Object> => {
       const data = await githubClient.request(gql`
   {
     repository(name: "${r.repo}", owner: "${r.owner}") {
@@ -21,5 +23,3 @@ const repositoryInfos = async (repositories: Array<Repository>) => {
     })
   )
 }
-
-export { repositoryInfos }

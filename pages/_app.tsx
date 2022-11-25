@@ -2,7 +2,7 @@ import { ThemeProvider, useTheme } from 'next-themes'
 import { useEffect } from 'react'
 import '../styles/globals.css'
 import '../styles/post.css'
-import Footer from '../components/footer.jsx'
+import Footer from '../components/footer'
 
 function MyApp({ Component, pageProps }) {
   const { theme, setTheme } = useTheme()

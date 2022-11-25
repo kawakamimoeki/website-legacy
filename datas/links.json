@@ -1,0 +1,55 @@
+[
+  {
+    "name": "Github",
+    "accounts": [
+      { "name": "@cc-kawakami", "url": "https://github.com/cc-kawakami" },
+      { "name": "@moekidev", "url": "https://github.com/moekidev" }
+    ]
+  },
+  {
+    "name": "DEV Community (Posts)",
+    "accounts": [{ "name": "@moekidev", "url": "https://dev.to/moekidev" }]
+  },
+  {
+    "name": "Zenn",
+    "accounts": [{ "name": "moekidev", "url": "https://zenn.dev/moekidev" }]
+  },
+  {
+    "name": "Medium",
+    "accounts": [{ "name": "@moekidev", "url": "https://medium.com/@moekidev" }]
+  },
+  {
+    "name": "RubyGems",
+    "accounts": [
+      {
+        "name": "cc-kawakami",
+        "url": "https://rubygems.org/profiles/cc-kawakami"
+      }
+    ]
+  },
+  {
+    "name": "npm",
+    "accounts": [
+      { "name": "moekidev", "url": "https://www.npmjs.com/~moekidev" }
+    ]
+  },
+  {
+    "name": "Twitter",
+    "accounts": [{ "name": "@moekidev", "url": "https://twitter.com/moekidev" }]
+  },
+  {
+    "name": "Instagram",
+    "accounts": [
+      { "name": "@moekidev", "url": "https://instagram.com/moeki.dev" }
+    ]
+  },
+  {
+    "name": "SoundCloud",
+    "accounts": [
+      {
+        "name": "kawakami-moeki",
+        "url": "https://soundcloud.com/kawakami-moeki"
+      }
+    ]
+  }
+]

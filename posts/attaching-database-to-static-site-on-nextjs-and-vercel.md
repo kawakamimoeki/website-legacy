@@ -14,7 +14,7 @@ Let's see.
 
 First, we will implement the UI.
 
-```jsx:components/like.jsx
+```jsx:components/like
 import { useState } from 'react'
 import { MdThumbUp } from 'react-icons/md'
 
@@ -48,7 +48,7 @@ export default function Component(props) {
 
 Where the DB is concerned, `TODO: create like`
 
-```jsx:components/like.jsx
+```jsx:components/like
 const createLike = async () => {
   if (liked === false) {
     // TODO: create like
@@ -60,7 +60,7 @@ const createLike = async () => {
 
 and `likeCount`.
 
-```jsx:components/like.jsx
+```jsx:components/like
 const [likeCount, setLikeCount] = useState(props.likeCount)
 ```
 
@@ -134,7 +134,7 @@ export default async function handler(req, res) {
 
 and add the fetching process to callback.
 
-```jsx:components/like.jsx
+```jsx:components/like
 const createLike = async () => {
   if (liked === false) {
     fetch('/api/like/create')

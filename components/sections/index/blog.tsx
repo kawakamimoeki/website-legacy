@@ -1,9 +1,15 @@
-import Heading from './heading'
-import PostList from './post-list'
+import Heading from '../../heading'
+import PostList from '../../post-list'
 import Link from 'next/link'
 import { MdCallMade } from 'react-icons/md'
+import React from 'react'
+import { Post } from '../../../interfaces/post'
 
-export default function Component({ posts }) {
+type Props = {
+  posts: Array<Post>
+}
+
+export default function Blog({ posts }: Props): JSX.Element {
   return (
     <div className="mb-5">
       <Heading>

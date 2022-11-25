@@ -1,7 +1,8 @@
-import Heading from './heading.jsx'
-import Dotted from './dotted'
+import React from 'react'
+import Heading from '../../heading'
+import Dotted from '../../dotted'
 
-export default function component() {
+export default function Vision() {
   return (
     <div className="mb-5">
       <Heading>

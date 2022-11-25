@@ -1,11 +1,13 @@
+import React from 'react'
 import SEO from '../components/seo'
 import Header from '../components/header'
-import { getPostsData } from '../lib/posts'
+import { getPosts } from '../lib/get-posts'
 import PostList from '../components/post-list'
 import Dotted from '../components/dotted'
+import { InferGetStaticPropsType } from 'next'
 
 export async function getStaticProps() {
-  const allPostsData = await getPostsData()
+  const allPostsData = await getPosts()
   return {
     props: {
       allPostsData
@@ -13,7 +15,9 @@ export async function getStaticProps() {
   }
 }
 
-export default function Blog({ allPostsData }) {
+export default function Blog({
+  allPostsData
+}: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
   return (
     <>
       <SEO />

@@ -1,6 +1,7 @@
-import Heading from './heading.jsx'
+import Heading from '../../heading'
+import React from 'react'
 
-export default function Component(props) {
+export default function Contact() {
   return (
     <div className="mb-5">
       <Heading>Contact</Heading>

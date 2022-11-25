@@ -1,13 +1,15 @@
+import * as React from 'react'
 import Head from 'next/head'
 import Markdown from '../../components/markdown'
 import Date from '../../components/date'
 import Title from '../../components/title'
-import { getPostData, getPostsData } from '../../lib/posts'
+import { getPost, getPosts } from '../../lib/get-posts'
 import Link from 'next/link'
 import SEO from '../../components/seo'
+import { Post } from '../../interfaces/post'
 
 export async function getStaticPaths() {
-  const postsData = await getPostsData()
+  const postsData = await getPosts()
   return {
     paths: postsData.map((d) => {
       return {
@@ -20,26 +22,32 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.id)
+export async function getStaticProps({
+  params
+}: {
+  params: {
+    id: number
+  }
+}) {
+  const post = await getPost(params.id)
 
   return {
     props: {
-      postData
+      post
     }
   }
 }
 
-export default function Post({ postData }) {
+export default function Post({ post }: { post: Post }): JSX.Element {
   return (
     <>
       <SEO />
       <Head>
-        <title>{postData.title}</title>
+        <title>{post.title}</title>
       </Head>
-      <Title>{postData.title}</Title>
-      <Date className="text-sm opacity-50" dateString={postData.date} />
-      <Markdown content={postData.content}></Markdown>
+      <Title>{post.title}</Title>
+      <Date className="text-sm opacity-50" dateString={post.date.toString()} />
+      <Markdown content={post.content}></Markdown>
       <Link
         className="underline decoration-yellow-400 decoration-4 underline-offset-4 font-bold block my-6 text-center"
         href="/blog">

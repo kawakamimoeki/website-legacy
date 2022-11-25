@@ -1,13 +1,14 @@
-import text from '../data/text.json'
+import React from 'react'
+import links from '../../../datas/links.json'
 import Link from 'next/link'
-import Heading from './heading'
+import Heading from '../../heading'
 import { MdCallMade } from 'react-icons/md'
 
-export default function component() {
+export default function Links() {
   return (
     <div className="mb-5">
       <Heading>Links</Heading>
-      {text.links.map((link, i) => {
+      {links.map((link, i) => {
         return (
           <div key={i} className="mb-2  ">
             <h3 className="opacity-50">{link.name}</h3>
