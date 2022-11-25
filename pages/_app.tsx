@@ -1,6 +1,6 @@
 import SEO from '../components/seo'
 import { ThemeProvider, useTheme } from 'next-themes'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import '../styles/globals.css'
 import '../styles/post.css'
 import Header from '../components/header'
@@ -9,12 +9,15 @@ import React from 'react'
 
 function MyApp({ Component, pageProps }) {
   const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const root = window.document.documentElement
-    const color = root.style.getPropertyValue('--initial-color-mode')
-    setTheme(color)
-  }, [setTheme])
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
 
   return (
     <>

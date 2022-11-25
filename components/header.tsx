@@ -7,7 +7,7 @@ import { IoMoon, IoSunny } from 'react-icons/io5'
 import Link from 'next/link'
 
 export default function Header() {
-  const { t } = useLocale()
+  const { t, locales } = useLocale()
   const { theme, setTheme } = useTheme()
   const router = useRouter()
 
@@ -25,25 +25,29 @@ export default function Header() {
         </Link>
         <div className="grow"></div>
         <div className="mx-2 cursor-pointer">
-          {theme === 'dark' ? (
-            <IoMoon onClick={() => setTheme('light')} />
-          ) : (
+          {theme === 'light' ? (
             <IoSunny onClick={() => setTheme('dark')} />
+          ) : (
+            <IoMoon onClick={() => setTheme('light')} />
           )}
         </div>
-        <Link
-          className={`mx-2 ${t.slug === 'en' ? 'opacity-50' : 'underline'}`}
-          href="#"
-          locale="en">
-          English
-        </Link>{' '}
-        /{' '}
-        <Link
-          className={`mx-2 ${t.slug === 'ja' ? 'opacity-50' : 'underline'}`}
-          href="#"
-          locale="ja">
-          日本語
-        </Link>
+        {locales
+          .map((l, i) => (
+            <Link
+              key={i}
+              className={`mx-2 ${
+                t.slug === l.slug ? 'opacity-50' : 'underline'
+              }`}
+              href="#"
+              locale={l.slug}>
+              {l.locale}
+            </Link>
+          ))
+          .reduce((pre, cur) => (
+            <>
+              {pre} / {cur}
+            </>
+          ))}
       </div>
     </div>
   )
