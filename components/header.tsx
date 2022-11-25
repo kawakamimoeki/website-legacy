@@ -14,13 +14,15 @@ export default function Header() {
   return (
     <div>
       <div className="flex items-center max-w-2xl mx-auto px-4">
-        <Image
-          src="/img/me.jpg"
-          alt={t.name}
-          width="40"
-          height="40"
-          className="inline rounded-full my-4 border-2 border-gray-700 bg-gray-700 dark:bg-white dark:border-white"
-        />
+        <Link href="/" passHref>
+          <Image
+            src="/img/me.jpg"
+            alt={t.name}
+            width="40"
+            height="40"
+            className="inline rounded-full my-4 border-2 border-gray-700 bg-gray-700 dark:bg-white dark:border-white"
+          />
+        </Link>
         <div className="grow"></div>
         <div className="mx-2 cursor-pointer">
           {theme === 'dark' ? (
