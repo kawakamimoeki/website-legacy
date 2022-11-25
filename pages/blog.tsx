@@ -22,9 +22,6 @@ export default function Blog({
         <h2 className="text-2xl font-bold">
           <span className="marker marker-yellow">Blog</span>
         </h2>
-        <p>
-          <Dotted>The exploration</Dotted> to product design for productivity.
-        </p>
         <div className="mt-4">
           <PostList posts={allPostsData} />
         </div>
