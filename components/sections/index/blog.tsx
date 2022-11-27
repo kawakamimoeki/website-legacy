@@ -21,8 +21,7 @@ export default function Blog({ posts }: Props): JSX.Element {
           className="underline decoration-yellow-300 decoration-4 underline-offset-4 font-bold"
           href="/blog"
           passHref>
-          Go to moeki.dev/blog
-          <MdCallMade className="inline ml-1" />
+          Read more posts →
         </Link>
       </div>
     </div>
