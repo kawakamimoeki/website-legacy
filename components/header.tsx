@@ -16,7 +16,7 @@ export default function Header() {
       <div className="flex items-center max-w-2xl mx-auto px-4">
         <Link href="/" passHref>
           <Image
-            src="/img/me.jpg"
+            src="/img/kawakamimoeki.jpg"
             alt={t.name}
             width="40"
             height="40"

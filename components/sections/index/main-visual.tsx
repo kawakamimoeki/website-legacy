@@ -14,7 +14,7 @@ export default function Mainvisual() {
       </Title>
       <p>{t.description}</p>
       <Image
-        src="/img/me.jpg"
+        src="/img/kawakamimoeki.jpg"
         alt={t.name}
         width="100"
         height="100"

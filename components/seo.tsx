@@ -17,7 +17,7 @@ export default function Seo() {
       <meta property="og:type" content="website" />
       <meta
         property="og:image"
-        content="https://kawakamimoeki.com/img/me.jpg"
+        content="https://kawakamimoeki.com/img/kawakamimoeki.jpg"
       />
     </Head>
   )
