@@ -7,6 +7,12 @@
     ]
   },
   {
+    "name": "Trello",
+    "accounts": [
+      { "name": "Work", "url": "https://trello.com/b/GT6hFcZg/work" }
+    ]
+  },
+  {
     "name": "DEV Community (Posts)",
     "accounts": [{ "name": "@moekidev", "url": "https://dev.to/moekidev" }]
   },
