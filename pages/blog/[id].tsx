@@ -6,7 +6,7 @@ import Title from '../../components/title'
 import { getPosts } from '../../lib/get-posts'
 import { getPost } from '../../lib/get-post'
 import Link from 'next/link'
-import SEO from '../../components/seo'
+import { useLocale } from '../../hooks/use-locale'
 import { PostType } from '../../interfaces/post'
 
 export async function getStaticPaths() {
@@ -43,10 +43,27 @@ export async function getStaticProps({
 }
 
 export default function Post({ post }: { post: PostType }): JSX.Element {
+  const { t } = useLocale()
+
   return (
     <>
       <Head>
         <title>{post.title}</title>
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href={`https://kawakamimoeki.com/en/blog/${post.id}`}
+        />
+        <link
+          rel="alternate"
+          hrefLang="ja"
+          href={`https://kawakamimoeki.com/ja/blog/${post.id}`}
+        />
+        <meta
+          property="og:url"
+          content={`https://kawakamimoeki.com/${t.slug}/blog/${post.id}`}
+        />
+        <meta property="og:title" content={post.title} />
       </Head>
       <Title>{post.title}</Title>
       <Date className="text-sm opacity-50" dateString={post.date.toString()} />
