@@ -8,7 +8,7 @@ export default function Contact() {
       <p>
         Welcome emails:{' '}
         <a className="underline" href="mailto: me@moeki.dev">
-          me@moeki.dev
+          info@kawakamimoeki.com
         </a>
       </p>
     </div>
