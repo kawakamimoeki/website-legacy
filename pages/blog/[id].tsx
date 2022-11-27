@@ -72,7 +72,7 @@ export default function Post({ post }: { post: PostType }): JSX.Element {
         className="underline decoration-yellow-400 decoration-4 underline-offset-4 font-bold block my-6 text-center"
         href="/blog"
         passHref>
-        ← Back to moeki.dev/blog
+        ← Back to list
       </Link>
     </>
   )
