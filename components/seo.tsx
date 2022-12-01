@@ -19,6 +19,11 @@ export default function Seo() {
         property="og:image"
         content="https://kawakamimoeki.com/img/kawakamimoeki.jpg"
       />
+      <meta
+        property="twitter:image"
+        content="https://kawakamimoeki.com/img/kawakamimoeki.jpg"
+      />
+      <meta name="twitter:card" content="summary" />
     </Head>
   )
 }
