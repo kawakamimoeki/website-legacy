@@ -1,5 +1,8 @@
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    scrollRestoration: true
+  },
   i18n: {
     locales: ['en-US', 'ja'],
     defaultLocale: 'en-US'
