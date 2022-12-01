@@ -1,6 +1,8 @@
 const en = {
-  slug: 'en',
-  locale: 'English',
+  meta: {
+    slug: 'en-US',
+    name: 'English'
+  },
   name: 'Moeki Kawakami',
   title: 'Moeki Kawakami',
   description: "Hi. I'm Moeki Kawakami, software developer in Japan.",

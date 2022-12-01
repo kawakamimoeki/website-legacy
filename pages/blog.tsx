@@ -6,16 +6,16 @@ import { InferGetStaticPropsType } from 'next'
 import { useLocale } from '../hooks/use-locale'
 
 export async function getStaticProps() {
-  const allPostsData = await getPosts()
+  const posts = await getPosts()
   return {
     props: {
-      allPostsData
+      posts
     }
   }
 }
 
 export default function Blog({
-  allPostsData
+  posts
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
   const { t } = useLocale()
 
@@ -26,7 +26,7 @@ export default function Blog({
         <link
           rel="alternate"
           hrefLang="en"
-          href={`https://kawakamimoeki.com/en/blog`}
+          href={`https://kawakamimoeki.com/en-US/blog`}
         />
         <link
           rel="alternate"
@@ -35,7 +35,7 @@ export default function Blog({
         />
         <meta
           property="og:url"
-          content={`https://kawakamimoeki.com/${t.slug}/blog`}
+          content={`https://kawakamimoeki.com/${t.meta.slug}/blog`}
         />
         <meta property="og:title" content={`Blog - ${t.title}`} />
       </Head>
@@ -44,7 +44,7 @@ export default function Blog({
           <span className="marker marker-yellow">Blog</span>
         </h2>
         <div className="mt-4">
-          <PostList posts={allPostsData} />
+          <PostList posts={posts[t.meta.slug]} />
         </div>
       </section>
     </>

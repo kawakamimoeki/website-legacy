@@ -12,7 +12,13 @@ export default function Header() {
   const router = useRouter()
 
   return (
-    <div>
+    <div
+      style={{
+        background: 'rbga(0,0,0,0.8)',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)'
+      }}
+      className="z-10 fixed w-full text-gray-900 dark:text-white">
       <div className="flex items-center max-w-2xl mx-auto px-4">
         <Link href="/" passHref>
           <Image
@@ -36,11 +42,11 @@ export default function Header() {
             <Link
               key={i}
               className={`mx-2 ${
-                t.slug === l.slug ? 'opacity-50' : 'underline'
+                t.meta.slug === l.meta.slug ? 'opacity-50' : 'underline'
               }`}
               href="#"
-              locale={l.slug}>
-              {l.locale}
+              locale={l.meta.slug}>
+              {l.meta.name}
             </Link>
           ))
           .reduce((pre, cur) => (

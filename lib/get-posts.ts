@@ -1,25 +1,16 @@
-import fs from 'fs'
-import path from 'path'
-import { getPost } from './get-post'
-import { PostType } from '../interfaces/post'
+import contentfulClient from './contentful-client'
+import en from '../locales/en'
+import ja from '../locales/ja'
 
-const postsDirectory = path.join(process.cwd(), 'posts')
-
-export async function getPosts(): Promise<Array<PostType>> {
-  const fileNames = fs.readdirSync(postsDirectory)
-  const allPostsData = await Promise.all(
-    fileNames.map(async (fileName) => {
-      const id = fileName.replace(/\.md$/, '')
-      return getPost(id)
+export async function getPosts() {
+  let posts = {}
+  await Promise.all(
+    [en, ja].map(async (l) => {
+      const entries = await contentfulClient.getEntries({
+        locale: l.meta.slug
+      })
+      return (posts[l.meta.slug] = entries.items)
     })
   )
-  return allPostsData.sort(({ date: a }, { date: b }) => {
-    if (a < b) {
-      return 1
-    } else if (a > b) {
-      return -1
-    } else {
-      return 0
-    }
-  })
+  return posts
 }
