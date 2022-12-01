@@ -1,4 +1,5 @@
 import { InferGetStaticPropsType } from 'next'
+import Head from 'next/head'
 import MainVisual from '../components/sections/index/main-visual'
 import Vision from '../components/sections/index/vision'
 import Bios from '../components/sections/index/bios'
@@ -31,6 +32,14 @@ export default function IndexPage(
   const { t } = useLocale()
   return (
     <>
+      <Head>
+        <meta
+          property="og:url"
+          content={`https://kawakamimoeki.com/${t.meta.slug}`}
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={t.title} />
+      </Head>
       <MainVisual />
       <Vision />
       <Bios />

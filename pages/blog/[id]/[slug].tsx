@@ -68,6 +68,7 @@ export default function Post({ post }): JSX.Element {
           }`}
         />
         <meta property="og:title" content={post[t.meta.slug].fields.title} />
+        <meta property="og:type" content="article" />
         <meta
           property="twitter:title"
           content={post[t.meta.slug].fields.title}

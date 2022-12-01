@@ -37,6 +37,7 @@ export default function Blog({
           property="og:url"
           content={`https://kawakamimoeki.com/${t.meta.slug}/blog`}
         />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content={`Blog - ${t.title}`} />
       </Head>
       <section className="">
