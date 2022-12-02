@@ -5,6 +5,7 @@ import { useTheme } from 'next-themes'
 import { useRouter } from 'next/router'
 import { IoMoon, IoSunny } from 'react-icons/io5'
 import Link from 'next/link'
+import { GoMarkGithub } from 'react-icons/go'
 
 export default function Header() {
   const { t, locales } = useLocale()
@@ -30,11 +31,16 @@ export default function Header() {
           />
         </Link>
         <div className="grow"></div>
-        <div className="mx-2 cursor-pointer">
+        <div>
+          <Link target="_blank" href="https://github.com/kawakamimoeki/website">
+            <GoMarkGithub className="w-8" />
+          </Link>
+        </div>
+        <div className="cursor-pointer">
           {theme === 'light' ? (
-            <IoSunny onClick={() => setTheme('dark')} />
+            <IoSunny className="w-8" onClick={() => setTheme('dark')} />
           ) : (
-            <IoMoon onClick={() => setTheme('light')} />
+            <IoMoon className="w-8" onClick={() => setTheme('light')} />
           )}
         </div>
         {locales

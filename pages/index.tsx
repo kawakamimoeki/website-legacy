@@ -43,11 +43,8 @@ export default function IndexPage(
       <MainVisual />
       <Vision />
       <Bios />
-      <Works repos={props.works} />
-      <Contributions repos={props.contributions} />
       <Blog posts={props.posts[t.meta.slug].filter((p, i) => i < 3)} />
       <Contact />
-      <Links />
     </>
   )
 }
