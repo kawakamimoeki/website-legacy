@@ -1,96 +1,96 @@
 ---
-title: 「嬉しい」「使いやすい」を最大化するサイト設計
+title: Maximizing usability of web site
 date: '2022-10-24'
 ---
 
-## 対象者
+## Target audience.
 
-- サイトの設計に関わる人
-- 具体的な計測方法などについて深く掘り下げるかはまだ未定です（技術者向けの内容になるかも）
+- Anyone involved in site design.
+- (It has not yet been decided whether we will delve deeply into specific measurement methods, etc. (The content may be geared toward technical experts.)
 
-## 想定する課題
+## Assumed Issues
 
-- ユーザーにとって嬉しいコンテンツと使いやすい機能を定義できていない
-  - 「嬉しい」「使いやすい」の基準が分からない
-- ユーザーのタスクの完了率を最大化する設計ができていない
-  - タスクとして、PV しか定義できていない
-  - 完了率として、PV しか計測できていない
+- Not able to define user-pleasing content and easy-to-use functions.
+  - Not sure of the criteria for "happy" and "easy to use".
+- Cannot design to maximize user task completion rate
+  - Only PV is defined as a task.
+  - Only PV can be measured as a completion rate.
 
-## ユーザーにとって「嬉しい」「使いやすい」を定義する
+## Define "delightful" and "easy to use" for users
 
-一般的にユーザビリティの高いタスクは以下のような指標において優秀な成績を収めているとされています。ここでタスクとは、コンテンツ読了、機能利用などユーザーが目標に到達するために行う行動を指します。
+In general, usability tasks are considered to have excellent performance in the following indicators. Here, a task is an action that a user performs to reach a goal, such as reading content or using a function.
 
-- _Task success rate（タスクの完了率）_
-- _Time on task（タスクにかかった時間）_
-- _Use of search vs. navigation（検索の利用率）_
+- _Task success rate_.
+- _Time on task_.
+- \_Use of search vs. navigation
 
 see [5 UX KPIs You Need To Track - Every Interaction](https://www.everyinteraction.com/articles/5-ux-kpis-need-track/)
 
-## 目標到達プロセスを設定する
+## Set up a goal attainment process
 
-目標達成プロセスは、いくつかのステップによって構成され、ユーザーにどのようにサイトを使ってもらいたいかを定義します。各ステップがタスクとなりますが、目標達成も大きなタスクと言うことができます。
+A goal attainment process consists of several steps that define how you want users to use your site. Each step is a task, but goal attainment can also be called a major task.
 
-### より詳細にサイトを設計するためのプロセス
+### Process for designing the site in more detail
 
-ステップはできるだけ詳細に定義してください。PV ではなく行動を単位として考えることで、サイト構成だけでなく、ページ内のコンテンツ・機能について議論することができるようになります。
+Steps should be defined in as much detail as possible; thinking in terms of units of action, rather than PV, will allow for discussion of the content/functionality of the pages as well as the site structure.
 
-- _Bad：ページビューをステップとする_
-- _Good：検索フォームの項目入力をステップとする_
+- \_Bad: page views as a step.
+- _Good: Search form item entry as a step_.
 
-GA4 を利用している場合には、このステップは、PV だけではなく、あらゆるイベント、たとえばスクロールやクリックとして定義できます。ステップとして利用したいイベントを取得するための方法は後述します。
+If you are using GA4, this step can be defined as any event, not just PV, e.g. scroll or click. The method for retrieving the event you want to use as a step is described below.
 
-### 目標達成プロセスは複数存在してよいか？
+### Can there be more than one goal attainment process?
 
-目標達成プロセスが一通りであるサイトの方が少ないでしょう。ユーザーの趣向や時期、広告などによってプロセスは変わることがあります。その場合は、ユーザータイプの定義や経路の定義を行い、それに対応したプロセスを設定してください。
+Few sites will have a single goal attainment process. The process may vary depending on user preferences, time of year, advertising, etc. In such cases, please define user types and pathways, and set up the corresponding processes.
 
-## ステップに従ってページを設計
+## Design pages according to steps
 
-ユーザーに期待するステップを元に、ページ構成・サイト構成を設計してください。
-プロセスが複数ある場合は、そのすべてを満たすような設計にする必要があります。プロセスのバッティングが起きた場合には、優先度の高い方にとって効果的な設計を採用してください。
-これを実践すると、プロセスに影響を与えないコンテンツは必要のないコンテンツということができてしまいます。しかし、ユーザーの行動パターンをすべて網羅することは不可能ですから、完璧を目指す必要はありません。ただし、コンテンツを追加する場合には、本当に目標達成にとって効果的なものなのか？という問いを忘れないようにしてください。
+Design the page and site structure based on the steps you expect users to take.
+If there are multiple processes, they should be designed to satisfy all of them. If batting of processes occurs, adopt the design that works best for the one with the highest priority.
+This practice would mean that content that does not impact the process is content that is not needed. However, it is impossible to cover all user behavior patterns, so there is no need to aim for perfection. However, when adding content, remember to ask the question, "Is it really effective in achieving our goals? If you do add content, however, remember to ask the question, "Is it really effective in helping me achieve my goals?
 
-また、
+Also, please use the
 
-- _Time on task（タスクにかかった時間）_
-- _Use of search vs. navigation（検索の利用率）_
+- _Time on task_.
+- _Use of search vs. navigation_.
 
-の指標に則って、
+in accordance with the following indicators
 
-- ステップ数を最小限にする
-- 入力はできるだけ補完する
-- 検索ではなくリンクを用意する
+- Minimize the number of steps
+- Complete the input as much as possible.
+- Provide links instead of searches.
 
-などを意識してください。
+Provide links, not searches.
 
-## ステップの成功率を計測する
+## Measuring the success rate of steps
 
-実践として基本は GA4 の「探索」の「目標達成プロセス」を利用してください。
-ここでは、
+As a basic practice, use the "Goal Achievement Process" in GA4's "Search" section.
+Here, you
 
-- 各ステップを定義できる
-- ステップの完了率/放棄率を見られる
+- You can define each step
+- You can see the completion/abandonment rate of the steps
 
-を実現することができます。
+and can achieve the same results.
 
-また、タグマネージャと GA4 を組み合わせて以下のようなイベントを計測することができます。
+You can also combine the Tag Manager with GA4 to measure the following events
 
-- すべての要素のクリックイベント
-  - HTML 要素
-  - テキスト
-  - フォームの値
-  - リンク先
-- スクロール率
-- ある要素の表示
+- Click events for all elements
+  - HTML Elements
+  - Text
+  - Form values
+  - Link destination
+- Scroll rate
+- Display of an element
 
-## ステップの成功率を向上させる
+## Improve the success rate of steps
 
-各ステップの成功率を向上させるような施策を検討してください。特に成功率の低いステップに重点を置いたり、施策のしやすいところから始めたりすると、何から手を付けてよいか迷うことが少なくなります。
+Consider measures that will improve the success rate of each step. Focusing on steps with particularly low success rates or starting with the easiest to implement measures will reduce confusion about where to begin.
 
-## プロセス変更の検討
+## Consider process changes
 
-どうしても、ステップの成功率を向上させることが難しいと判断した場合には、プロセスの変更を検討してください。
+If you find it difficult to improve the success rate of a step, consider changing the process.
 
-## 参考
+## Reference.
 
 - [5 UX KPIs You Need To Track - Every Interaction](https://www.everyinteraction.com/articles/5-ux-kpis-need-track/)
-- [ユーザーがより「頑張らなくていい」体験を考える | UX MILK](https://uxmilk.jp/82642)
+- [Think about a more "effortless" experience for users | UX MILK](https://uxmilk.jp/82642)

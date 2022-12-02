@@ -26,11 +26,10 @@ function MyApp({ Component, pageProps }) {
         <div
           className="leading-7 bg-white text-gray-900 dark:bg-gray-900 dark:text-white"
           style={{
-            wordBreak: 'break-all',
             transition: '0.5s'
           }}>
           <Header />
-          <div className="mx-auto max-w-2xl p-4">
+          <div className="pt-20 mx-auto max-w-2xl p-4">
             <Component {...pageProps} />
             <Footer />
           </div>

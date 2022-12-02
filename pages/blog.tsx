@@ -3,7 +3,6 @@ import { getPosts } from '../lib/get-posts'
 import PostList from '../components/post-list'
 import Head from 'next/head'
 import { InferGetStaticPropsType } from 'next'
-import { useLocale } from '../hooks/use-locale'
 
 export async function getStaticProps() {
   const allPostsData = await getPosts()
@@ -17,28 +16,13 @@ export async function getStaticProps() {
 export default function Blog({
   allPostsData
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
-  const { t } = useLocale()
-
   return (
     <>
       <Head>
-        <title>Blog - {t.title}</title>
-        <link
-          rel="alternate"
-          hrefLang="en"
-          href={`https://kawakamimoeki.com/en/blog`}
-        />
-        <link
-          rel="alternate"
-          hrefLang="ja"
-          href={`https://kawakamimoeki.com/ja/blog`}
-        />
-        <meta
-          property="og:url"
-          content={`https://kawakamimoeki.com/${t.slug}/blog`}
-        />
+        <title>Blog - Moeki Kawakami</title>
+        <meta property="og:url" content={`https://kawakamimoeki.com/blog`} />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content={`Blog - ${t.title}`} />
+        <meta property="og:title" content="Blog - Moeki Kawakami" />
       </Head>
       <section className="">
         <h2 className="text-2xl font-bold">

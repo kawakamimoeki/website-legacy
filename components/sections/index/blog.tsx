@@ -15,7 +15,7 @@ export default function Blog({ posts }: Props): JSX.Element {
       <Heading>
         <span className="marker marker-yellow">Blog</span>
       </Heading>
-      <PostList posts={[posts[0], posts[1]]} />
+      <PostList posts={posts.filter((p, i) => i < 4)} />
       <div className="text-center">
         <Link
           className="underline decoration-yellow-300 decoration-4 underline-offset-4 font-bold"

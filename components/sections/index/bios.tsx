@@ -1,21 +1,32 @@
 import Heading from '../../heading'
-import Link from 'next/link'
 import React from 'react'
 import Bio from '../../description'
-import { useLocale } from '../../../hooks/use-locale'
 
 export default function Bios(): JSX.Element {
-  const { t } = useLocale()
-
   return (
     <div className="mb-5">
       <Heading>Bio</Heading>
       <dl>
-        <Bio title={<>1996</>} detail={<>{t.bio.born}</>} />
-        <Bio title={<>2019</>} detail={<>{t.bio.bs}</>} />
+        <Bio title={<>1996</>} detail={<>Born in Tochigi, Japan</>} />
         <Bio
           title={<>2019</>}
-          detail={<div dangerouslySetInnerHTML={{ __html: t.bio.cc }} />}
+          detail={
+            <>
+              B.S. in Electronics and Informatics, Kanazawa University,
+              Kanazawa, Japan
+            </>
+          }
+        />
+        <Bio
+          title={<>2019</>}
+          detail={
+            <div
+              dangerouslySetInnerHTML={{
+                __html:
+                  'Joined <a href="https://www.colorfulcompany.co.jp" class="underline" target="_blank" rel="noopener">Colorful Company,Inc.</a>'
+              }}
+            />
+          }
         />
       </dl>
     </div>

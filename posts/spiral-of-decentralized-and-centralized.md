@@ -1,57 +1,57 @@
 ---
-title: 分散と集中の螺旋
+title: Spiral of decentralized and centralized
 date: '2022-11-26'
 ---
 
-こちらを拝聴し、勉強になる内容だったので、まとめた。
+I listened to this one and found it informative, so I summarized it here.
 
-[29. 技術選定の審美眼(2) w/ twada | fukabori.fm](https://fukabori.fm/episode/29)
+[29. The Aesthetic of Technology Selection (2) w/ twada | fukabori.fm](https://fukabori.fm/episode/29)
 
-全体としてはコンピューティングが発展しつつ、分散コンピューティングと集中コンピューティングの潮流が行き来してきていると言う話で、この歴史的な大まかな流れをまとめてくださっていた。
+The overall story was that computing is developing and that the trends of distributed computing and centralized computing have been coming and going, and he summarized this broad historical trend.
 
-筆者の前提としては、2019 年から業界に携わってきたというところ。
+The author's assumption is that he has been involved in the industry since 2019.
 
-この記事では、さらに詳しく用語を深掘って、見ていきたいと思う。
+In this article, I will dig deeper and look at the terms in more detail.
 
 ## Good Old Web
 
-まずは、[Visual Basic](https://ja.wikipedia.org/wiki/Visual_Basic) と SQL サーバーによる業務システムとかの話。これが 2000 年くらい。これは 2 層アーキテクチャと説明されていて、つまり、画面と SQL だけのアーキテクチャであった。これはなんとなく、[Next.js](https://nextjs.org/) とかのサーバーサイドとクライアントサイドの垣根を曖昧にして 2 層っぽくした開発体験に近いなと思った。
+First, we're talking about business systems and such using [Visual Basic](https://ja.wikipedia.org/wiki/Visual_Basic) and SQL servers. This was around 2000. It was described as a two-tier architecture, i.e., screen and SQL only. I thought this was somewhat similar to the development experience of [Next.js](https://nextjs.org/), which blurred the boundary between the server side and client side and made it look like a two-tier system.
 
-その次に、モノリシックな [LAMP(Linux, Apache, MySQL, PHP)](<https://en.wikipedia.org/wiki/LAMP_(software_bundle)>) による不動産の検索サービスを @t_wada さんが開発していたという話が。ただし実際には MySQL ではなく PostgreSQL だったとのこと。LAMP って聞いたことあったけど実際の事例を聞いたのは初めてだったので新鮮だった。ブラウザは PHP で描画された HTML を表示するだけの簡単なお仕事をしていた時代。同時期には、PHP だけでなく [Java Servlet](https://ja.wikipedia.org/wiki/Java_Servlet) とかが主流だった。これが 2002 年くらいの話。
+Next, I heard that @t*wada had developed a monolithic [LAMP(Linux, Apache, MySQL, PHP)](<https://en.wikipedia.org/wiki/LAMP*(software_bundle)>) real estate search service. I heard that @t_wada had developed a real estate search service using I had heard of LAMP, but this was the first time I heard of an actual case study, so it was new to me. It was a time when browsers were doing a simple job of displaying HTML rendered by PHP. At the same time, not only PHP but also [Java Servlet](https://ja.wikipedia.org/wiki/Java_Servlet) and others were mainstream. This was around 2002.
 
-ここで、**Visual Basic と SQL の 2 層アーキテクチャから LAMP による 3 層アーキテクチャへの移行があった**とのこと。これはつまり集中コンピューティングから分散コンピューティングへの流れの始まりにあたる。そして次項でさらに分散コンピューティングの傾向が強まった。
+Here, **there was a transition from a two-tier architecture of Visual Basic and SQL to a three-tier architecture with LAMP**. This is the beginning of the flow from centralized computing to distributed computing. And the trend toward distributed computing was further strengthened in the next section.
 
-## EJB(Enterprise JavaBeans), SOAP(Simple Object Access Protocol) による分散コンピューティング
+## Distributed Computing with EJB (Enterprise JavaBeans) and SOAP (Simple Object Access Protocol)
 
-業務システムは複雑で再利用できるパーツが多かったので、複数のシステムを接続したい要求が出てきた。
+Business systems were complex and had many reusable parts, so there was a demand to connect multiple systems.
 
-[EJB(Enterprise Java Beans)](https://ja.wikipedia.org/wiki/Enterprise_JavaBeans)とは、なんかビジネスロジックを実装するコンポーネントのことらしく、上記の問題を解決する文脈で登場してきた。
+[EJBs (Enterprise Java Beans)](https://ja.wikipedia.org/wiki/Enterprise_JavaBeans), which are components that implement some kind of business logic, have appeared in the context of solving the above problems. EJB (Enterprise Java Beans)]() is a component that implements business logic.
 
-[SOAP(Simple Object Access Protocol)](<https://ja.wikipedia.org/wiki/SOAP_(%E3%83%97%E3%83%AD%E3%83%88%E3%82%B3%E3%83%AB)>)は [XML](https://ja.wikipedia.org/wiki/Extensible_Markup_Language) ベースの [RPC](https://ja.wikipedia.org/wiki/%E9%81%A0%E9%9A%94%E6%89%8B%E7%B6%9A%E3%81%8D%E5%91%BC%E5%87%BA%E3%81%97) プロトコル。これは異なる言語、OS 上で走っているプロセスの間でも XML によって意思疎通ができるようなった。最終的には仕様が Simple でなくなってきて、 SOAP は Simple Oriented Access Protocol の略語ではないですという面白い声明を出したりしていたらしい。
+[SOAP (Simple Object Access Protocol)](<https://ja.wikipedia.org/wiki/SOAP_(%E3%83%97%E3%83%AD%E3%83%88%E3%82%B3%E3%83%AB)>) is an implementation of the [XML](https://ja.wikipedia.org/wiki/Extensible_Markup_Language) based [RPC](https://ja.wikipedia.org/wiki/%E9%81%A0%E9%9A%94%E6%89%8B%E7%B6%9A%E3%81%8D%E5%91%BC%E5%87%BA%E3%81%97) protocol. It allows processes running on different languages and operating systems to communicate with each other via XML. Eventually, the specification became less and less simple, and there was an interesting statement that SOAP is not an abbreviation for Simple Oriented Access Protocol.
 
-これらの考え方は、[SOA(Service-Oriented Architecture)](https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E6%8C%87%E5%90%91%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3) という言葉として定義されているよう。SOA とは、業務上の一処理に相当するソフトウェアの機能をサービスと見立て、そのサービスをネットワーク上で連携させてシステムの全体を構築していくこと。これはクラウドコンピューティングの台頭によって再認識されるようになった。具体的には、業務上の一処理に相当する単位でソフトウェアが構成されて、オープンで標準化されている技術仕様を用いてサービスのインタフェースが定義され手入れば、SOA ということらしい。
+These ideas are based on the [SOA (Service-Oriented SOA (Service-Oriented Architecture)](https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E6%8C%87%E5%90%91%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3) SOA refers to the construction of an entire system by considering software functions that correspond to a single business process as services, and linking these services together over a network. This has been reaffirmed with the rise of cloud computing. Specifically, if software is configured in units equivalent to a single business process and service interfaces are defined using open and standardized technical specifications, it is considered SOA.
 
-[サービス指向アーキテクチャとは何ですか? サービス指向アーキテクチャの説明 - AWS](https://aws.amazon.com/jp/what-is/service-oriented-architecture/)
+[What is Service Oriented Architecture? Service Oriented Architecture Explained - AWS](https://aws.amazon.com/jp/what-is/service-oriented-architecture/)
 
-## Ruby on Rails の衝撃によるモノリシックへの移行
+## The Impact of Ruby on Rails' Transition to Monolithic
 
-[Ruby on Rails](https://rubyonrails.org/) が登場した頃のことはあまりピンときていなかったが、確かに、この流れでブログを 10 分で作るっていう動画を出したらそりゃあ衝撃を受けるよな、、と納得した。Show note にも貼ってくださっていた YouTube の動画を載せておく。
+I didn't know much about [Ruby on Rails](https://rubyonrails.org/) when it first appeared, but I was convinced that it would be a shock if they released a video on how to create a blog in 10 minutes. I'll post the YouTube video that was also posted in the "Show note" page.
 
 [(1) Ruby on Rails demo - YouTube](https://www.youtube.com/watch?v=Gzj723LkRJY)
 
-今回の分散・集中の話の上において、Ruby on Rails のキモは「**設定より規約(Convention over Configuration)**」であったと話されている。
-SOA を基礎とした、EJB や SOAP の大きな問題点として、**決まりきった約束事を反映するための設定であるにもかかわらず、それをたくさん書かなければいけなかった**ということがある。そこに対するアンチテーゼとして、Ruby on Rails の立ち位置があった。
+In his talk about distribution and concentration, he mentioned that the key point of Ruby on Rails was "**Convention over Configuration**".
+One of the major problems with SOA-based EJBs and SOAPs is that you have to write a lot of configuration **even though the configuration is meant to reflect a fixed set of commitments**. Ruby on Rails stood as the antithesis of that.
 
-実は、Ruby on Rails 以前の時代でも [Spring Framework](https://ja.wikipedia.org/wiki/Spring_Framework) や [Seasar](https://ja.wikipedia.org/wiki/Seasar) のような Java のフレームワークがあったが、これらも Ruby on Rails の登場後その影響を受けて規約をベースにした設計になっていたそう。
+In fact, even in the pre-Ruby on Rails era, [Spring Framework](https://ja.wikipedia.org/wiki/Spring_Framework) and [Seasar](https://ja.wikipedia.org/wiki/Seasar), but these frameworks were also influenced by Ruby on Rails after its debut and were designed based on conventions.
 
-## Web ベースの分散システム
+## Web-based distributed systems
 
-分散システムってやっぱり難しいよねという背景からモノリシックな Ruby on Rails が誕生し、利用されてきた。
-**ただ、成功している分散している分散システムが身近にあったわ、という気づきがこの頃あった。その分散システムとは実は World Wide Web だった。**
-分散システムの設計が RPC から Web ベースへ移行し始めた。[Ajax](https://ja.wikipedia.org/wiki/Ajax) とともに JSON を利用したサーバーとクライアント間のやりとり、サーバー間のやりとりを行うアーキテクチャが増え始めた。また、クラウドコンピューティングの登場やコンテナ技術、継続的デリバリーの普及によって、マイクロサービスのような分散システムの流れが再び回ってきた。
-さらに、[GraphQL](https://graphql.org/)、[gRPC](https://grpc.io/) に象徴される、サーバ主導での API 定義から、クライアント主導での API 定義への変化によって、マイクロサービスの実現が補強された。このような視点から見ると、GraphQL なんかは確かにサーバーサイドとクライアントサイドの間の取り決めが少ないと言う点が強調されるような気がする。
+Ruby on Rails, a monolithic framework, was born out of the idea that distributed systems are difficult to implement.
+**However, I realized that there was a successful distributed distributed system around me. That distributed system was actually the World Wide Web. **
+The design of distributed systems began to shift from RPC to Web-based. Together with [Ajax](https://ja.wikipedia.org/wiki/Ajax), architectures for server-client and server-to-server interactions using JSON began to increase. In addition, with the advent of cloud computing, container technology, and continuous delivery, the trend toward distributed systems such as microservices has come around again.
+Furthermore, the shift from server-driven API definitions to client-driven API definitions, symbolized by [GraphQL](https://graphql.org/) and [gRPC](https://grpc.io/), has reinforced the realization of microservices. From this point of view, GraphQL certainly emphasizes the lack of agreements between the server side and the client side.
 
-## 所感
+## Impressions
 
-知らない話がたくさんあったので、明らかに現在進行形の技術に対する印象が強化されたと思う。
-他の観点からも螺旋を研究してみたい。
+There were a lot of things I didn't know, and I think it clearly reinforced my impression of ongoing technologies.
+I would like to study spirals from other perspectives.

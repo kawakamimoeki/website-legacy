@@ -1,29 +1,29 @@
 ---
-title: デプロイ環境によって変わる処理をコードから環境変数へ
+title: Using environment variable more
 date: '2022-10-24'
 ---
 
-例えば、タグマネージャのスニペットを本番環境に加えて、その他の環境にもテスト用のものを埋め込みたいような場合があるとします。
+For example, let's say you want to embed a snippet of the tag manager into the production environment plus other environments for testing.
 
-過去の私は以下のように実装していました。
+In the past I have implemented the following.
 
 ```erb
-<% if Rails.env.production? %>
-  <%# 本番用のスニペット %>
+<% if Rails.env.production?
+  <%# snippet for production %>
 <% else %>
-  <%# その他の環境用のスニペット %>
+  <%# snippet for other environments %>
 <% end %>
 ```
 
-うーん。これには問題がありました。
+Hmmm. There was a problem with this.
 
-- 👎 本番環境にデプロイするまで if 文の検証ができない
-- 👎 `RAILS_ENV=production` で確認できるとしても、そのほかの場所にどんな影響があるかわからない
+- 👎 Can't verify if statement until deployed to production.
+- 👎 Even if we can verify it with `RAILS_ENV=production`, we don't know what impact it will have elsewhere.
 
-代わりに、環境変数を利用してみるとどうでしょうか。
+What about using environment variables instead?
 
 ```erb
 <%= sanitize ENV[:GTM_HEAD_SNIPPET] %>
 ```
 
-いいかも！
+Good!

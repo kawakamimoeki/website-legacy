@@ -31,12 +31,9 @@ export default function IndexPage(
   return (
     <>
       <Head>
-        <meta
-          property="og:url"
-          content={`https://kawakamimoeki.com/${t.meta.slug}`}
-        />
+        <meta property="og:url" content="https://kawakamimoeki.com/" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content={t.title} />
+        <meta property="og:title" content="Moeki Kawakami" />
       </Head>
       <MainVisual />
       <Vision />
