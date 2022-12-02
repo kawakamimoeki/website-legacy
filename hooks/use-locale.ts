@@ -6,7 +6,7 @@ export const useLocale = () => {
   const { locale } = useRouter()
   const locales = [en, ja]
   const t = locales.filter((l) => {
-    return l.meta.slug === locale
+    return l.slug === locale
   })[0]
   return { t, locales }
 }

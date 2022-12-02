@@ -1,8 +1,6 @@
 const ja = {
-  meta: {
-    slug: 'ja',
-    name: '日本語'
-  },
+  slug: 'ja',
+  locale: '日本語',
   name: '川上 萌稀',
   title: '川上 萌稀',
   description: 'こんにちは。川上萌稀です。日本でウェブエンジニアをしています。',

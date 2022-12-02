@@ -11,15 +11,14 @@ import Contributions from '../components/sections/index/contributions'
 import { getPosts } from '../lib/get-posts'
 import repositories from '../datas/repositories.json'
 import { githubRepositories } from '../lib/github-repositories'
-import { useLocale } from '../hooks/use-locale'
 
 export async function getStaticProps() {
-  const posts = await getPosts()
+  const allPostsData = await getPosts()
   const contributions = await githubRepositories(repositories.contributions)
   const works = await githubRepositories(repositories.works)
   return {
     props: {
-      posts,
+      allPostsData,
       contributions,
       works
     }
@@ -29,7 +28,6 @@ export async function getStaticProps() {
 export default function IndexPage(
   props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
-  const { t } = useLocale()
   return (
     <>
       <Head>
@@ -43,7 +41,7 @@ export default function IndexPage(
       <MainVisual />
       <Vision />
       <Bios />
-      <Blog posts={props.posts[t.meta.slug].filter((p, i) => i < 3)} />
+      <Blog posts={props.allPostsData} />
       <Contact />
     </>
   )
