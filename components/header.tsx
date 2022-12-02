@@ -28,17 +28,17 @@ export default function Header() {
           />
         </Link>
         <div className="grow"></div>
-        <div>
-          <Link target="_blank" href="https://github.com/kawakamimoeki/website">
-            <GoMarkGithub className="w-8" />
-          </Link>
-        </div>
         <div className="cursor-pointer">
           {theme === 'light' ? (
             <IoSunny className="w-8" onClick={() => setTheme('dark')} />
           ) : (
             <IoMoon className="w-8" onClick={() => setTheme('light')} />
           )}
+        </div>
+        <div>
+          <Link target="_blank" href="https://github.com/kawakamimoeki/website">
+            <GoMarkGithub className="w-8" />
+          </Link>
         </div>
       </div>
     </div>
