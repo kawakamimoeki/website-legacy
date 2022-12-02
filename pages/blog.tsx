@@ -20,7 +20,7 @@ export default function Blog({
     <>
       <Head>
         <title>Blog - Moeki Kawakami</title>
-        <meta property="og:url" content={`https://kawakamimoeki.com/blog`} />
+        <meta property="og:url" content={`https://moeki.dev/blog`} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Blog - Moeki Kawakami" />
       </Head>

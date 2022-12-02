@@ -7,8 +7,8 @@ export default function Contact() {
       <Heading>Contact</Heading>
       <p>
         Welcome emails:{' '}
-        <a className="underline" href="mailto: hello@kawakamimoeki.com">
-          hello@kawakamimoeki.com
+        <a className="underline" href="mailto: hello@moeki.dev">
+          hello@moeki.dev
         </a>
       </p>
     </div>

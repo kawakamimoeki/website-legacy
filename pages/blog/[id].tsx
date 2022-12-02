@@ -44,10 +44,7 @@ export default function Post({ post }: { post: PostType }): JSX.Element {
     <>
       <Head>
         <title>{post.title}</title>
-        <meta
-          property="og:url"
-          content={`https://kawakamimoeki.com/blog/${post.id}`}
-        />
+        <meta property="og:url" content={`https://moeki.dev/blog/${post.id}`} />
         <meta property="og:title" content={post.title} />
       </Head>
       <Title>{post.title}</Title>
