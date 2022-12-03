@@ -12,7 +12,7 @@ export default function Mainvisual() {
       </Title>
       <p>Hi. I&apos;m Moeki Kawakami, software developer in Japan.</p>
       <Image
-        src="/img/kawakamimoeki.jpg"
+        src="/img/moeki.jpg"
         alt="Moeki Kawakami"
         width="100"
         height="100"

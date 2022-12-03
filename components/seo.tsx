@@ -14,13 +14,10 @@ export default function Seo() {
         property="og:description"
         content="Hi. I'm Moeki Kawakami, software developer in Japan."
       />
-      <meta
-        property="og:image"
-        content="https://moeki.dev/img/kawakamimoeki.jpg"
-      />
+      <meta property="og:image" content="https://moeki.dev/img/moeki.jpg" />
       <meta
         property="twitter:image"
-        content="https://moeki.dev/img/kawakamimoeki.jpg"
+        content="https://moeki.dev/img/moeki.jpg"
       />
       <meta name="twitter:card" content="summary" />
       <link rel="icon" type="image/x-icon" href="/img/favicon.ico"></link>
