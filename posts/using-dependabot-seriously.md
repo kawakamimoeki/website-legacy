@@ -45,7 +45,7 @@ We have a set of uniform rules for working on Dependabot as a team.
 
 Libraries related to static site generators were skipped at this time as they are **not subject to user input** and therefore low risk.
 
----.
+---
 
 These were the initiatives. Future issues to be addressed are.
 

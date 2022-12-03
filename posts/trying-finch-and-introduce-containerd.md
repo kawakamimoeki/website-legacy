@@ -76,7 +76,7 @@ Here, I encountered some differences in behavior between Docker and containerd.
 
 First, the abbreviated description of port was invalid.
 
-```diff:compose.yaml
+```diff yaml:compose.yaml
   db:
     ports:
 -     - 5432
@@ -85,7 +85,7 @@ First, the abbreviated description of port was invalid.
 
 The other error occurred when I tried to read a file outside of the context. This time, I had to change the location of the file.
 
-```diff:compose.yaml
+```diff yaml:compose.yaml
   app:
      volumes:
 -      - ~/.gitconfig:/root/.gitconfig

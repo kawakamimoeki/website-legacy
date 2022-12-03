@@ -16,7 +16,7 @@ Often the argument is, "It's too early to use this," or "Isn't this already out 
 
 In reading various articles about technology selection, I have found myself thinking.
 
-- **What are the criteria that make you feel you are too advanced or too conservative in selecting a certain technology? **
+- **What are the criteria that make you feel you are too advanced or too conservative in selecting a certain technology?**
 
 I'd like to dig deeper into this question.
 

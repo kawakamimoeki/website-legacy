@@ -21,12 +21,13 @@ I have experienced this myself in my own recent work. I have felt the challenge 
 
 #### What should we do?
 
-Hmmm. What should I do in this case? I thought I would start tomorrow's meeting by proposing a policy based on how **I** want users to act. If that idea works, it would be easier to come up with the next measure based on a similar concept.
+Hmmm. What should I do in this case? I thought I would start tomorrow's meeting by proposing a policy based on how I want users to act. If that idea works, it would be easier to come up with the next measure based on a similar concept.
 
-Around this point, I realized that **starting small in size may be applicable to the way we work. ** I realized that it was a good idea. So I made up my own rules.
+Around this point, I realized that \*\*starting small in size may be applicable to the way we work. I realized that it was a good idea. So I made up my own rules.
 
-1. start **from yourself 2.**Start with your area of work
-   3.\*\*Start with a simple product
-2. start \*\*from where you can get immediate feedback
+1. start from yourself
+2. Start with your area of work
+3. Start with a simple product
+4. start from where you can get immediate feedback
 
 That's all.
