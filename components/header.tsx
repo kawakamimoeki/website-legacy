@@ -1,7 +1,5 @@
-import React from 'react'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
-import { useRouter } from 'next/router'
 import { IoMoon, IoSunny } from 'react-icons/io5'
 import Link from 'next/link'
 import { GoMarkGithub } from 'react-icons/go'

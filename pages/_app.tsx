@@ -1,24 +1,11 @@
 import SEO from '../components/seo'
-import { ThemeProvider, useTheme } from 'next-themes'
-import { useState, useEffect } from 'react'
+import { ThemeProvider } from 'next-themes'
 import '../styles/globals.css'
 import '../styles/post.css'
 import Header from '../components/header'
 import Footer from '../components/footer'
-import React from 'react'
 
 function MyApp({ Component, pageProps }) {
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) {
-    return null
-  }
-
   return (
     <>
       <SEO />

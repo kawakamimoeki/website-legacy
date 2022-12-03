@@ -3,24 +3,15 @@ import Head from 'next/head'
 import MainVisual from '../components/sections/index/main-visual'
 import Vision from '../components/sections/index/vision'
 import Bios from '../components/sections/index/bios'
-import Links from '../components/sections/index/links'
 import Contact from '../components/sections/index/contact'
 import Blog from '../components/sections/index/blog'
-import Works from '../components/sections/index/works'
-import Contributions from '../components/sections/index/contributions'
 import { getPosts } from '../lib/get-posts'
-import repositories from '../datas/repositories.json'
-import { githubRepositories } from '../lib/github-repositories'
 
 export async function getStaticProps() {
-  const allPostsData = await getPosts()
-  const contributions = await githubRepositories(repositories.contributions)
-  const works = await githubRepositories(repositories.works)
+  const posts = await getPosts()
   return {
     props: {
-      allPostsData,
-      contributions,
-      works
+      posts
     }
   }
 }
@@ -38,7 +29,7 @@ export default function IndexPage(
       <MainVisual />
       <Vision />
       <Bios />
-      <Blog posts={props.allPostsData} />
+      <Blog posts={props.posts.filter((p, i) => i < 4)} />
       <Contact />
     </>
   )
