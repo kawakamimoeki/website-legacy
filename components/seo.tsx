@@ -23,6 +23,7 @@ export default function Seo() {
         content="https://moeki.dev/img/kawakamimoeki.jpg"
       />
       <meta name="twitter:card" content="summary" />
+      <link rel="icon" type="image/x-icon" href="/img/favicon.ico"></link>
     </Head>
   )
 }
