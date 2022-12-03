@@ -21,7 +21,7 @@ Reference: [Migration from Docker to containerd (NTT Tech Conference 2022 Presen
 
 Looking at the details, it seems that Kubernetes used to touch Docker for managing containers on distributed environments, but in recent years, they started to use [containerd](https://containerd.io/) directly.
 
-! [](https://miro.medium.com/max/1400/1*HL7tRfSRwv8fLleLRDvDXQ.webp)
+![](https://miro.medium.com/max/1400/1*HL7tRfSRwv8fLleLRDvDXQ.webp)
 https://speakerdeck.com/ktock/dockerkaracontainerdhefalseyi-xing?slide=7
 
 Direct use of containerd? containerd? turns out I didn't know anything about container technology.
