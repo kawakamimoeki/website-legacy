@@ -43,9 +43,9 @@ export default function Post({ post }: { post: PostType }): JSX.Element {
   return (
     <>
       <Head>
-        <title>{post.title}</title>
+        <title>{post.title} - Moeki Kawakami</title>
         <meta property="og:url" content={`https://moeki.dev/blog/${post.id}`} />
-        <meta property="og:title" content={post.title} />
+        <meta property="og:title" content={`${post.title} - Moeki Kawakami`} />
       </Head>
       <Title>{post.title}</Title>
       <Date className="text-sm opacity-50" dateString={post.date.toString()} />
