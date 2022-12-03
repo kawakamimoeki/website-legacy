@@ -1,5 +1,5 @@
 ---
-title: Single page site will be default?
+title: Will single-page sites become the standard?
 date: '2022-12-03'
 ---
 
@@ -14,4 +14,4 @@ Therefore, I verified their docs because the pages are implemented with their pr
 
 The answer was very clear. I agree with Next.js docs, single page site. It's very comfortable. In Astro documentation, the first page load is quickly, but it is slowly when I click links. Next.js documentation is continuously light.
 
-Finally, I decided that my blog is implemented with Next.js in the future. I made my decision based on my experience with the framework documentations. Single page site will be default?
+Finally, I decided that my blog is implemented with Next.js in the future. I made my decision based on my experience with the framework documentations. Will single-page sites become the standard? Or will the multi-page sites survive as a necessary and sufficient design?
