@@ -96,5 +96,3 @@ I think this is also true for technology selection. There are cases where except
 - Technology selection should be done according to the rhythm of the world.
 - Actually, the same can be said for UI.
 - There are cases where exceptional choices should be made.
-
-was.
