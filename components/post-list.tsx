@@ -7,7 +7,7 @@ export default function PostList({ posts }) {
   return (
     <ul>
       {posts.map(({ id, date, title, content }) => (
-        <li className="py-3" key={id}>
+        <li className="py-2" key={id}>
           <h3 className="text-lg">
             <Link href={`/blog/${id}`} passHref>
               {title}
