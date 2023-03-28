@@ -10,7 +10,7 @@ export default function Mainvisual() {
           <span className="marker marker-sky">Moeki Kawakami</span>
         </Link>
       </Title>
-      <p>Hi. I&apos;m Moeki Kawakami, application developer in Japan.</p>
+      <p>こんにちは。はじめまして。</p>
       <Image
         src="/img/moeki.jpg"
         alt="Moeki Kawakami"

@@ -6,7 +6,6 @@ export default function Contact() {
     <div className="mb-5">
       <Heading>Contact</Heading>
       <p>
-        Welcome emails:{' '}
         <a className="underline" href="mailto: hello@moeki.dev">
           hello@moeki.dev
         </a>

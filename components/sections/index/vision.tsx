@@ -6,22 +6,16 @@ export default function Vision() {
   return (
     <div className="mb-5">
       <Heading>
-        Technology <span className="marker marker-sky">Lead</span> People
+        テクノロジーでみんなを
+        <span className="marker marker-sky">リードする</span>
       </Heading>
-      <Dotted>
-        <i>
-          I wouldn&apos;t have come up with this idea if it weren&apos;t for
-          you!
-        </i>
-      </Dotted>
       <p>
-        I have been encouraged by technology. It has nurtured my creativity.
-        Photography, music and software. Without computer technology, I would
-        never have been able to actually put the ideas in my head into reality.
-        It was a world where we could show our photos to many people without
-        exhibition, and where we could make music without playing an instrument.
-        The goal is to become an engineer who supports the creativity that is
-        unique to the person.
+        テクノロジーは、私の創造力を育ててくれました。
+        写真、音楽、ソフトウェア。コンピュータ技術がなければ、私は
+        頭の中のアイデアを現実にすることはできませんでした。
+        それは展示会がなくても多くの人に写真を見せることができる世界であり、
+        楽器を演奏しなくても音楽を作ることができる世界でした。
+        目標は、個人の創造力を支えるエンジニアになることです。
       </p>
     </div>
   )
