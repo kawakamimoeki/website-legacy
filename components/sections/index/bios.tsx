@@ -20,6 +20,17 @@ export default function Bios(): JSX.Element {
             />
           }
         />
+        <Bio
+          title={<>2023</>}
+          detail={
+            <div
+              dangerouslySetInnerHTML={{
+                __html:
+                  '<a href="https://bitjourney.com" class="underline" target="_blank" rel="noopener">株式会社ビットジャーニー</a>入社'
+              }}
+            />
+          }
+        />
       </dl>
     </div>
   )
