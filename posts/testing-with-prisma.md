@@ -1,5 +1,5 @@
 ---
-title: 'Testing with Prisma'
+title: 'Prismaでのテスト'
 date: '2022-11-05'
 ---
 
