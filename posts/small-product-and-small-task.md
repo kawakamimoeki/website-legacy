@@ -1,33 +1,33 @@
 ---
-title: Small product and small task
+title: 小さなプロダクトから、小さな仕事から
 date: '2022-11-01'
 ---
 
-**From the Minimum Viable Product** recommendations, there is a clear benefit to starting with a small product.
+**Minimum Viable Product**の提言より、小さな製品から始めることには明確にメリットがあることが示されています。
 
-> Since developing a product with many features based on faulty assumptions (value proposition) also increases the cost and risk of failure, it is comparatively cheaper to gain insights from the MVP and gradually incorporate them into product development.
+> 誤った仮定（価値提案）に基づき多くの機能を備えた製品の開発すると、失敗した場合のコストとリスクも増加するため、MVP からインサイトを得てそれを徐々に製品開発に反映させるほうが比較的に安価である。
 
-[Minimum viable product - Wikipedia](https://en.wikipedia.org/wiki/Minimum_viable_product)
+[実用最小限の製品 - Wikipedia](https://ja.wikipedia.org/wiki/%E5%AE%9F%E7%94%A8%E6%9C%80%E5%B0%8F%E9%99%90%E3%81%AE%E8%A3%BD%E5%93%81)
 
-**You only know what it is** when you build it. That means there is a lot to learn from a minimal product, not only for the customer, but for the developer as well.
+**作ってみてはじめて、それが何なのかを分かる**というのはありますよね。顧客だけではなく開発者にとっても最小限のプロダクトにはそれだけで学びがたくさんあるということです。
 
-Furthermore, I've been reading [Effective DevOps [Book]](https://www.oreilly.com/library/view/effective-devops/9781491926291/) recently, and here's a similar story in the context of changing organizations.
+さらに、最近 [O'Reilly Japan - Effective DevOps](https://www.oreilly.co.jp/books/9784873118352/) を読んでいますが、ここでも組織を変えるという文脈で似たような話が出てきました。
 
-> Fixed thinking at the organizational level often occurs because there are multiple people who have bad memories of reform or are risk averse for various reasons.... It can be as small as correcting a wrong document... And it builds confidence that the change or reform will not only improve the situation, but will not necessarily cause major problems or service failures.
+> 組織レベルの固定思考は、改革に悪い思い出がある人やさまざまな理由でリスクを嫌う人が複数いるため発生することが多い。...間違ったドキュメントの訂正のような小さいもので良い。...そして、変更や改革は状況を改善するだけでなく、必ずしも大きな問題やサービス障害を引き起こすものでもないという自信を付けていくのである。
 
-Yes... **Try small first to see what the team reform looks like, get feedback**. I'm with you. You can kind of imagine that suddenly expanding the big picture will result in team members becoming more skeptical of the new system. (**Is that really okay? Can you do it? **)
+はい。**チーム改革がどんなものかをまず小さくやってみて確認する、フィードバックを得る**。一緒ですね。いきなり大風呂敷を広げても、チームメンバーが新しい体制への疑念を強めてしまう結果になるのはなんとなく想像できますよね。（**それ、本当にいいの？できるの？**）
 
-I have experienced this myself in my own recent work. I have felt the challenge that **teams tend** to think about measures based on how the creator wants the user to act, rather than how the user wants to act. So I put together a document talking about how the current issue is this, and measuring usability in this way. But the result was that **I myself wondered if this was really going to solve things? I began to have doubts about this**. I think this is due to the fact that I am afraid of the risk of changing the structure of the team.
+これについては、私自身も最近の仕事で体験しました。**チームがユーザーがどう行動したいか、ではなく作り手がどう行動してほしいかを考えて施策を考えている**傾向があるという課題を感じていました。そこで、今の課題はこれで、ユーザビリティをこのように計測して、という話をドキュメントにまとめてみました。しかし結果は、**私自身も本当にこれで事態が解決に向かうのか？という疑念が湧いてきてしまったのです**。これはチームの体制が変わることのリスクを恐れているというのが原因だと思います。
 
-#### What should we do?
+#### どうするべきか？
 
-Hmmm. What should I do in this case? I thought I would start tomorrow's meeting by proposing a policy based on how I want users to act. If that idea works, it would be easier to come up with the next measure based on a similar concept.
+うーん。この場合どうするべきでしょうか？明日のミーティングでは**私が**ユーザーがどう行動したいか、を軸とした施策を提案するところから始めてみようと思いました。その案が上手く行けば、次も似た考え方に基づいた施策を考えやすいのではないでしょうか。
 
-Around this point, I realized that \*\*starting small in size may be applicable to the way we work. I realized that it was a good idea. So I made up my own rules.
+この辺りで、**サイズを小さくはじめることは仕事のやり方にも通用するのでは？** ということに気が付きました。そこで私なりのルールを作りました。
 
-1. start from yourself
-2. Start with your area of work
-3. Start with a simple product
-4. start from where you can get immediate feedback
+1. **自分から**はじめる
+2. **自分の仕事の領域から**はじめる
+3. **シンプルなプロダクトから**はじめる
+4. **すぐにフィードバックが得られるところ**からはじめる
 
-That's all.
+以上です。

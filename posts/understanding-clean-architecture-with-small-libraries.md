@@ -1,31 +1,29 @@
 ---
-title: Understanding Clean Architecture with Small Ruby Libraries
+title: Rubyの小さなライブラリ群によるアプリでクリーンアーキテクチャを理解する
 date: '2022-11-01'
 ---
 
-After about 5 laps around Clean architecture since I came across [hanami/hanami: The web, with simplicity.](https://github.com/hanami/hanami), I'm finally getting it down in my gut, so I'll summarize.
+クリーンアーキテクチャですが、[hanami/hanami: The web, with simplicity.](https://github.com/hanami/hanami) と出会ってから 5 周回くらいして、ようやく腹落ちしつつあるのでまとめてみます。
 
-#### It is difficult to understand while using a frameworks like Ruby on Rails
+#### フレームワークを利用しつつ理解するのは難しい
 
-When using a framework, the outer moat of the Usecase in the [diagram](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) is filled in: Controller, View, and Model in the case of MVC, and Repository in the case of other patterns. Personally, I feel that if all three layers from the inner layer are integrated, they are the center of the application.
+フレームワークを利用した場合、例の図の Usecase の外堀をグルッと埋める形になります。MVC なら Controller、View、Model です。Hanami の場合は Repository が来ます。個人的にはこの内側から 3 層目が全て一体化していると、どうしてもそれらが中心であるように感じてしまうんですよね。
 
-![Image description](/img/clean-architecture.jpg)
+そこでアプリケーションのそれぞれの責務を別のライブラリを利用して実装することを試してみました。
 
-So I tried to implement each responsibility of the application using different libraries.
+これです。 [cc-kawakami/clean-architecture-minimal-app: A minimal Clean Architecture app](https://github.com/cc-kawakami/clean-architecture-minimal-app)
 
-Here it is. [cc-kawakami/clean-architecture-minimal-app: A minimal Clean Architecture app](https://github.com/cc-kawakami/clean-architecture-minimal-app)
+利用したライブラリはこれらです。
 
-These are the libraries we used.
-
-- Use Case: [utils/interactor.rb at v1.3.8 - hanami/utils](https://github.com/hanami/utils/blob/v1.3.8/lib/hanami/interactor.rb)
+- Usecase: [utils/interactor.rb at v1.3.8 · hanami/utils](https://github.com/hanami/utils/blob/v1.3.8/lib/hanami/interactor.rb)
 - Controller: [sinatra/sinatra: Classy web-development dressed in a DSL (official / canonical repo)](https://github.com/sinatra/sinatra)
 - Serializer: [procore/blueprinter: Simple, Fast, and Declarative Serialization Library for Ruby](https://github.com/procore/blueprinter)
 - Object Mapper: [rom-rb/rom: Data mapping and persistence toolkit for Ruby](https://github.com/rom-rb/rom)
 - DB: [sparklemotion/sqlite3-ruby: Ruby bindings for the SQLite3 embedded database](https://github.com/sparklemotion/sqlite3-ruby)
 
-#### "Let there be Entity."
+#### 「Entity あれ。」
 
-We will attack from the heart of the architecture. First, Entity.
+アーキテクチャの中心から攻めていきます。まずは Entity。
 
 ```ruby
 class User
@@ -39,11 +37,11 @@ class User
 end
 ```
 
-This is a plain ruby object. It defines what kind of information you want to handle in your business. In this case, we have a User Entity to manage users.
+普通のクラスですね。ビジネス上でどんな情報を扱うかを定義しています。今回はユーザーを管理することを想定して User entitiy を用意しました。
 
-#### Next, the business logic of the app
+#### 次にアプリのビジネスロジック
 
-This app will allow you to search users by ID.
+このアプリではユーザーを ID で検索できるようにします。
 
 ```ruby
 class FindUser
@@ -58,7 +56,7 @@ class FindUser
 
   def call(id)
     begin
-      # Find users
+      #ユーザーを探す
     rescue => e
       error!(e.class.name)
     end
@@ -66,14 +64,14 @@ class FindUser
 end
 ```
 
-We now have a Use Case that looks like this. We can now define what purpose the app serves in the business: Repository, Serializer is an Adapter that fetches Entity and outputs it. This is used by Use Case.
+こんな感じの Usecase を用意しました。これがアプリがビジネス上のどんな目的を果たすかを定義できました。Repository, Serializer は Entity をとってくるところと出力するところの Adapter ですね。これを Usecase が利用します。
 
-#### Then, we can create the Interface Adapters.
+#### あとは Adapter を拵えていく
 
-Repository.
+Repository。
 
 ```ruby
-class UserRepository < ROM::Repository[:users].
+class UserRepository < ROM::Repository[:users]
   commands :create
 
   def find(id)
@@ -82,7 +80,7 @@ class UserRepository < ROM::Repository[:users].
 end
 ```
 
-Controller.
+Controller。
 
 ```ruby
 get "/users/:id" do
@@ -105,7 +103,7 @@ get "/users/:id" do
 end
 ```
 
-Serializer.
+Serializer です。
 
 ```ruby
 class UserSerializer < Blueprinter::Base
@@ -115,9 +113,9 @@ class UserSerializer < Blueprinter::Base
 end
 ```
 
-We're all set.
+これで揃いました。
 
-Now we can write the details of the Use case that came up earlier.
+あとは、さっき出てきた Usecase の詳細な記述をしていきます。
 
 ```ruby
 class FindUser
@@ -144,18 +142,18 @@ class FindUser
 end
 ```
 
-#### Execute
+#### 実行する
 
 ```bash
 $ curl http://127.0.0.1:9292/users/1
-{"id":1, "email": "smith@exmaple.com", "name": "Smith"}
+{"id":1,"email":"smith@exmaple.com","name":"Smith"}
 ```
 
-OK, so you get the sense that the HTTP request/response is just one of the **input/output details** of business logic.
-Likewise, the DB is only one of the **implementations** of creating the User. DB and HTTP are **details**.
+OK。ここまでの流れで、HTTP リクエスト・レスポンスは、FindUser のビジネスロジックの**入出力の詳細の一つ**に過ぎないことが体感できましたでしょうか。
+同じ様に、DB は User を生成するための**実装の一つ**でしかありません。**DB や HTTP は詳細**なのです。
 
-#### Difficult to mix responsibilities, No mixing of responsibilities
+#### 責務を混ぜることが難しい = 責務が混ざらない
 
-This design naturally leads to a design in which the details of DB, HTTP, HTML, and JSON are distributed in each direction of the circle, starting from the Use case. The above is all.
+この設計なら、Controller に Entity の検索が記述されることは、よほど工夫しない限り起こらないということが分かるでしょう。DB や HTTP、HTML、JSON の詳細は Usecase を起点として、円のそれぞれの方向へ分散される、という設計に自然と誘導されます。
 
-That's all. Thank you very much.
+以上です。ありがとうございました。

@@ -1,56 +1,54 @@
 ---
-title: Google Cloud Error Reporting for error handling
+title: Google Cloud Error Reportingでエラーと上手く付き合う
 date: '2022-11-01'
 ---
 
-Error Reporting has recently evolved in many ways and has become a seamless service from notification to logging, so I will summarize the whole picture.
+Error Reporting が最近色々進化していて、通知から記録まで隙のないサービスになっていたので全体像をまとめてみます。
 
-## Send errors to Error Reporting
+## Error Reporting へエラーを送信する
 
-If you are using GCP infrastructure, it will automatically pick up the errors.
-If you are not using GCP infrastructure, check out the various libraries available.
+GCP のインフラを利用している場合は自動で拾ってくれます。
+ソレ以外の場合もいろいろライブラリがあるので調べてみてください。
 
-## Manage error status
+## エラーのステータスを管理する
 
-Error Reporting allows you to manage the status of errors.
+Error Reporting では、エラーのステータスを管理できます。
 
-- **Unresolved**
-- **Confirmed**
-- **Resolved**.
+- **未解決**
+- **確認済み**
+- **解決済み**
 
-and if you want to set it as Confirmed, you can link to **Github Issue etc.** ## Notify via Slack or Email
+で、確認済みにする場合は、**Github の Issue などをリンクする**ことが出来ます。
 
-## Notify errors via Slack or email
+## Slack やメールでエラーを通知する
 
-Error Reporting supports Slack and email notifications by default.
-Notifications are based on the following criteria
+Error Reporting ではデフォルトで Slack やメールでの通知に対応しています。
+通知の条件は、
 
-- **New errors **occur
-- When an error that has been resolved \*\*recurs
-- **If you are notified **5 or more times**, you will not be notified of errors for **6 hours\*\*.
+- **新しいエラーが**発生した場合
+- 解決済みのエラーが**再発した**場合
+- **5 回以上**通知されたら、**6 時間はエラーが通知されなくなる**
 
-So, if you manage your error status properly.
+なので、エラーのステータスをきちんと管理すれば、
 
-- \*\*Notify only errors that need to be addressed (unknown/recurrent)
-- **exclude** notification of errors that do not need to be addressed (in-process/unavoidable)
-- **avoid frequent notifications**.
+- **対応が必要な（未知の/再発した）エラーのみ**を通知する
+- 対応が必要でない（対応中の/避けられない）エラーの通知を**除外する**
+- **通知が頻繁に来続けることを避ける**
 
-can be achieved.
+が実現できます。
 
-Also, when combined with **Cloud Logging** (which automatically logs for errors) and **Cloud Monitoring**, you can.
+また、**Cloud Logging**（自動でエラーの分のログが記録されています）と**Cloud Monitoring**と組み合わせれば、
 
-- **notify you as an incident when an error occurs frequently that would not normally require action**.
+- **普段は対応が必要なさそうなエラーが頻発した場合にインシデントとして通知する**
 
-can also be realized.
-**For example, the policy "Too meny timeout" can be used to set up appropriate notifications in cases where timeouts are usually unavoidable and should be ignored, but are worrisome when there are too many of them. **
+も実現できます。
+**例えば ポリシー "Too meny timeout" など、普段はタイムアウトは仕方ないので無視したいけど、めっちゃ多いと心配になる、という場合にも適切な通知を設定できると思います。**
 
-## Analyze errors
+## エラーの分析をする
 
-Error Reporting allows you to see a trace. You can analyze various things here.
-However, you cannot see the status of the request, so you need to consider a different method.
+Error Reporting ではトレースを見ることが出来ます。ここでいろいろ分析できますね。
+ただし、リクエストの状態は見られれないので、そこは別の方法を検討する必要があります。
 
-## Logging errors
+## エラーを記録する
 
-Error Reporting information is stored in Cloud Logging at the same time. By syncing this to Cloud Storage, you can store error information permanently.
-
-Translated with www.DeepL.com/Translator (free version)
+Error Reporting の情報は同時に Cloud Logging に溜まっています。これを Cloud Storage にシンクすることで、永続的にエラーの情報を保存することが出来ます。

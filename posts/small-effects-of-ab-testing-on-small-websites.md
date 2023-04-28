@@ -1,20 +1,20 @@
 ---
-title: 'Small effects of A/B testing on small websites'
+title: '小さなウェブサイトでのA/Bテストの難しさ'
 date: '2022-11-16'
 ---
 
-I have done A/B testing in my work. My impression after doing it is that A/B testing is very delicate and intricate, so it is very difficult to handle. I think there is a high possibility of failure. In this article, I would like to discuss why A/B testing is so difficult.
+私は仕事上、A/B テストを行ったことがあります。やってみての感想は、A/B テストは非常に繊細で緻密なため、扱いが非常に難しいです。失敗する可能性も高いと思います。今回は、なぜ A/B テストが難しいのかについてお話したいと思います。
 
-A/B testing is a method of testing two sites by delivering a pattern of appearance and functionality to a specified percentage of users, to see which pattern is more likely to achieve a given goal. The goals are, for example, page transitions, button clicks, conversions, etc. This is expected to be set appropriately depending on where the A/B test is conducted.
+A/B テストとは、2 つのサイトの見た目と機能のパターンを指定された割合のユーザーに配信し、どちらのパターンが与えられたゴールを達成しやすいかをテストする方法です。目標とは、例えば、ページ遷移、ボタンクリック、コンバージョンなどです。これは、A/B テストを実施する場所によって適切に設定されることが期待される。
 
-It is important to note that A/B testing can only tell us what is likely, it does not mean that the results will always be better when we actually release the product.
+注意点としては、A/B テストはあくまで可能性の高いものを教えてくれるものであり、実際にリリースしたときに必ず良い結果が出るというわけではないことです。
 
-Now that I have given you an overview, I will talk about why this A/B testing is so difficult. First of all, let's talk about goal setting. For example, let's say you want to test a link that takes you to a form, and you set the number of times the link is pressed as the target value. At this point, it is important to note that even if the link is pressed more often in Pattern B, it does not necessarily mean that the number of completed conversions will be higher. In A/B testing, the business-critical metrics that you do not want to lower by making changes, such as the number of completed conversions, are called **guardrail metrics**.
+さて、概要を説明したところで、この A/B テストがなぜ難しいのかについてお話します。まず、目標設定についてです。例えば、あるリンクからフォームに飛ぶテストをしたいとして、そのリンクが押された回数を目標値として設定するとします。この時、注意しなければならないのは、パターン B の方がリンクが押される回数が多くても、コンバージョン完了数が多くなるとは限らないということです。A/B テストでは、コンバージョン完了数など、変更を加えることで下げたくないビジネスクリティカルな指標を**ガードレ-ルメトリクス**と呼びます。
 
-A possible reason for the actual release of a pattern that performed well in A/B testing but did not affect conversions or had a negative impact is that this guardrail metric is being ignored.
+A/B テストで良い結果を出したのに、コンバージョンに影響がなかったり、マイナスになったりするパターンが実際にリリースされる理由として考えられるのは、このガードレールメトリクスが無視されていることです。
 
-Of course, it is best to set the final goal, the conversion completion rate, as the target for A/B testing, but there may be cases where the population of conversions is too small to test because the differences in goals are not significantly comparable. This is where guardrail metrics come into play, which is ultimately the same as setting the conversion completion rate as the A/B test goal. In other words, A/B testing will not work if the number of inflows and conversions are considerably low.
+もちろん、A/B テストでは最終目標であるコンバージョン完了率を目標に設定するのがベストですが、目標の差が大きく比較できないため、コンバージョンの母数が少なくテストができないケースもあるでしょう。そこで登場するのがガードレール指標で、これは結局コンバージョン完了率を A/B テストの目標に設定したのと同じことです。つまり、流入数やコンバージョン数がかなり少ないと A/B テストはうまくいきません。
 
-I believe this phenomenon often occurs with site changes themselves to begin with. For a website with a clear goal, such as an landing page, you should design the story of how the user achieves the goal. This is very important from a macro perspective.
+そもそもこの現象は、サイトの変更自体で起こることが多いと思います。ランディングページのようなゴールが明確なサイトでは、ユーザーがどのようにゴールを達成するのか、そのストーリーを設計する必要があります。これはマクロ的に見ても非常に重要なことです。
 
-If the number of inflows and conversions are low, we believe it is more effective to make changes to the story, such as fewer pages or a richer main visual, rather than small changes such as button decorations or wording.
+流入数やコンバージョン数が少ない場合は、ボタンの装飾や文言などの小さな変更ではなく、ページ数の削減やメインビジュアルのリッチ化など、ストーリーに沿った変更を行うことが効果的だと考えています。

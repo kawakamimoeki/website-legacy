@@ -1,55 +1,55 @@
 ---
-title: Using Dependabot seriously
+title: Dependabot をちゃんと活用するために行なった取り組み
 date: '2022-10-30'
 ---
 
-Dependabot was a hoarder.
+Dependabot 溜めてました。
 
-I have tried various things to make use of Dependabot, and I will summarize them here.
+反省して、Dependabot を活用するため色々試してみたので、それについてまとめます。
 
-## 1. make time for Dependabot
+## 1. Dependabot 用の時間を作る
 
-I decided to work on the Dependabot merge at the beginning of the month.
+月の初めに Dependabot のマージに取り組む、と決めてしまいました。
 
-## 2. automatically set reviewer milestones
+## 2. レビュアー・マイルストーンの自動設定
 
-If you are set as a reviewer, you have to review.
-If you set a milestone with a date, you will be motivated to do it in time. Maybe.
+レビュアーに自分が設定されているとレビューしなきゃってなりますよね。
+マイルストーンに日付が設定されていると時間内にやろうって気になりますよね。多分。
 
-So, I set the following.
+ということで以下のように設定しました。
 
-| Item      | Value                                         |
-| --------- | --------------------------------------------- |
-| Reviewer  | All                                           |
-| milestone | `security-update-<month>` (8th of each month) |
+| 項目           | 値                                    |
+| -------------- | ------------------------------------- |
+| レビュアー     | 全員                                  |
+| マイルストーン | `security-update-<month>` (毎月 8 日) |
 
-The most important thing to be aware of is to set the maximum number of reviewers. **We have clearly stated our policy to increase the number of human eyes as much as possible**. However, depending on the nature of the team, it is possible that reviews may be arranged.
+意識したのは、レビュアーを最大限に設定することです。**人の目は出来るだけ増やすという方針を明示しました**。ただし、チームの体質によっては、レビューがお見合いになる可能性はあります。
 
-Also, it was difficult to set up Github Actions for each repository, so we decided to create one repository for Dependabot countermeasures and set it up from there by hitting the API.
+また、自動設定の方法は、リポジトリごとに Github Actions を設定するのが大変だったので、Dependabot 対策用のリポジトリを一つ作ってそこから、API を叩いて設定することにしました。
 
-## 3. create a TODO list
+## 3. TODO リストを作る
 
-I made a TODO list of Dependabot PRs to be worked on for the month in an Issue. This will help us get a better overview and make it easier to look back\*\*.
+その月に取り組む Dependabot の PR を Issue に TODO リストとしてまとめるようにしました。これによって、**全体像が把握でき、振り返りをしやすくなる**のではという算段です。
 
-## 4. Clearly state the rules
+## 4. ルールを明言する
 
-We have a set of uniform rules for working on Dependabot as a team.
+Dependabot をチームで取り組むために統一されたルールを用意しました。
 
-- Note that Dependabot includes updates to **major versions**.
-  - Most libraries have security updates in the latest major version
-- Major and minor versions run **tests**.
-- Check **release notes** for patched versions
-- Keep a **warning list** of any previous updates that have caused problems
+- Dependabot には**メジャーバージョン**のアップデートも含まれることに注意する
+  - ほとんどのライブラリは最新のメジャーバージョンでセキュリティアップデートを行なっています
+- メジャーバージョン・マイナーバージョンは**テスト**を実行する
+- パッチバージョンは**リリースノート**を確認する
+- 以前アップデートにより不具合が起きたものは、**注意するリストに記録**しておく
 
-## 5. minimize the amount of PR in Dependabot
+## 5. Dependabot の PR の量を必要最小限にする
 
-Libraries related to static site generators were skipped at this time as they are **not subject to user input** and therefore low risk.
+静的サイトジェネレータに関するライブラリは、**ユーザーの入力を受けないので**、リスクが低いと判断して、今回はスキップしました。
 
 ---
 
-These were the initiatives. Future issues to be addressed are.
+以上、取り組みでした。今後の課題としては、
 
-- We would like to change the CI execution depending on the type of version being updated.
-- We would like to have an award for a large number of reviews.
+- アップデートされるバージョンの種類によって CI の実行内容を変えたい
+- たくさんレビューしたで賞を設けたい
 
-I would like to have an award for a lot of reviews. Thank you very much.
+です。ありがとうございました。

@@ -3,57 +3,64 @@ title: Technology Proliferation System and Creative
 date: '2022-11-21'
 ---
 
-Have you ever had this experience: you pick up your iPhone, go to the home screen and say, "Huh? What were I trying to do?" . Simply put, the use of the iPhone has become **self-purposeful**. The iPhone was originally intended as a means to do something fun, but now it has become an end. Why is this happening? In fact, there is a secret in the applications you get from the store. **Twitter wants you to see ads, Netflix wants you to watch more videos, and Uber Eats wants you to order more food.** If you don't use it, they will delete your app or terminate your contract. When I first learned this secret, I bemoaned the unhealthy revenue patterns of the Internet world, but I am gradually realizing that this is not a recent phenomenon. It turns out that this is not a problem unique to the Internet, **but rather the nature of technology itself**. Technology has a proliferating system.
+あなたは、こんな経験はないだろうか。iPhone を手に持ってホーム画面へ行って、「あれ？何をしようとした？」。これは端的に言えば、iPhone の利用が自己目的化している状態だ。本来何か楽しいことをするための手段であったはずの iPhone は今や目的になっている。なぜこの様なことが起きるのだろうか。実は皆さんがストアで手に入れたアプリケーションには秘密がある。あなたのアテンションを待っているという秘密だ。Twitter はあなたに広告を見てほしいし、Netflix はあなたにもっとたくさんの動画を見てほしいし、Uber Eats はあなたにもっとたくさん注文をしてほしいと願っている。利用されなければアプリを消されてしまったり、契約を終了されてしまうからだ。私はこの秘密を知った時に、インターネットの世界の収益形態はなんて不健全なんだ、と嘆いたものだが、実はこれはここ最近になって始まったものではないことに段々気がついてきた。インターネット特有の問題ではなく、テクノロジー自体の性質であることがわかった。新しいテクノロジーには、”増殖する力学が働く法則”がある。確かに、「利用されなければアプリを消されてしまったり、契約を終了されてしまうからだ」という文言は他のテクノロジーにも適応できそうだ。我々の知らないところで、自家用車と公共交通機関はお互いに顧客を巡って争い合っているようだ。自家用車の CM ではどれだけ自分の好きな道を走れることがあなたの人生にとって素晴らしいことかを謳い、公共交通機関はそれに対抗するように、環境問題や安全性を謳う。ディーラーに車検に行けば次に乗るべき自動車の話をされ、新しい車がどれだけ燃費がいいかというアピールをされる。すでに自動車に乗っている人はもう自動車からは離れられない。アテンションを要求されている。
 
-Indeed, the statement, "If you don't use it, they will delete your app or terminate your contract," could be applied to other technologies as well. Unbeknownst to us, it seems that private cars and public transportation are fighting each other for customers. Private car commercials tout how great it is for your life to be able to drive the way you want, while public transportation counteracts this with environmental concerns and safety. When you go to the dealership for an inspection, they talk about the next car you should drive and make appeals about how fuel-efficient your new car is. People who are already driving cars can no longer stay away from them. Attention is demanded.
+需要者のテクノロジー利用への誘導
 
-- **Inducing Demanders to Use Technology**
-  - Product and marketing design
-  - Maintaining social relationships with other demanders
-  - Attraction of relationships with suppliers
+プロダクトやマーケティングの設計
 
-On the other hand, suppliers also cannot help but use technology. The world is flooded with applications for food and beverage chains that are not very useful. Companies will not be able to escape new initiatives due to the clever presentations of those promoting DX and the new applications of their competitors. In addition, companies promoting DX must be fascinated by the fun and potential of digital technology itself, and itch to spread it to the world. In summary, the following factors are likely to be at play
+他の需要者との社会的関係性の維持
 
-- **Inducing Suppliers to Adopt Technology**
-  - Competition among companies
-  - Sales by developers
-  - Interest in the technology itself
+供給者との関係性の魅力
 
-I see. Putting these two aspects of demand and supply together, we can certainly imagine that technology has a proliferative nature. When a new technology is invented, such as printing, electrical signals, or engines, it tends to replace existing methods from one end to the other.
+また、一方で供給者もテクノロジーの利用をせずにはいられなくなる。世間では対して便利でもない飲食チェーンのアプリケーションで溢れかえっている。企業は、DX を推進するものたちの巧みなプレゼンテーションや、競合他社の新しいアプリケーションによって、新しい取り組みからは逃れられなくなってしまう。また、DX を推進する企業はデジタルテクノロジー自体の面白さや可能性に魅了され、それを世に広めたくてうずうずしているはずだ。まとめると以下の様な要因がありそうだ。
 
-| Technology         | New Service/Media | Existing Service/Media |
-| ------------------ | ----------------- | ---------------------- |
-| Printing           | Reading           | Oral tradition         |
-| Electrical signals | LP                | Concerts               |
-| Engine             | Car               | Carriage               |
-| Computer           | Streaming         | Movie Theater          |
-| Internet           | SNS               | Business Cards         |
+供給者のテクノロジー導入への誘導
 
-The pattern in which the use of technology-based services/media other than the Internet, such as SNS and Google, is self-purposed can also be seen. For example, driving, LP collection, reading pride, etc. These are examples of how the demand side is guided by the use of technology, which is also common to technologies other than the Internet. On the supply side, if a label's competitor releases a new LP, they will have to do the same to compete.
+企業間の競争
 
-I see two problems with this obsession with technology on both the demand and supply sides.
+開発者による営業
 
-1. **excessive replacement of technology**
-2. **addiction due to the self-objectification of products and services**
+テクノロジー自体の面白さ
 
-**However, I thought here. Is there a pattern in which these problems are less likely to appear?**
+なるほど。これら需要と供給側の 2 つの側面を合わせると確かにテクノロジーには、増殖法則があることが想像できそうだ。印刷や電気信号やエンジンなど、新しいテクノロジーが発明された場合に、既存の方法を片っ端から置き換えていく傾向がある。
 
-It was about creative activities. In the case of creative activities, it may be possible to develop a healthy relationship with technology. That is, **the proliferative nature of technology becomes a relationship that supports creativity**. This is because the act of creativity itself **requires both exploration of the new (supply-side proliferation) and mastery of the means (demand-side proliferation)**. This can be clearly seen by shifting the previous table from the consumer to the creator perspective.
+印刷：口頭伝承 → 読書
 
-| Technology         | New Creative     | Existing Creative  |
-| ------------------ | ---------------- | ------------------ |
-| Printing           | Writing          | Oral Tradition     |
-| Electrical signals | Sound recordings | Concerts           |
-| Engine             | Car racing       | Horse racing       |
-| Computer           | Adobe            | Handwriting Design |
-| Internet           | YouTube posts    | 8mm film           |
+電気信号：コンサート →LP
 
-For each new creative, I cannot speak of it as inferior or superior to the existing ones, but there is a joy that comes from having a new playground, and immersion in these technologies is often a good way to enhance creativity. In the case of writing, one must first become proficient in the art of writing. The more widespread the use of printed materials, the easier it is to improve one's writing skills. Writing also allows for a realism of dialogue and an optimal speed for each reader that could not be conveyed through oral tradition. This technique becomes more sophisticated the more books an author writes.
+エンジン：馬車 → 自動車
 
-Summary.
+コンピュータ：映画館 → ストリーミング
 
-- **Technology Proliferation System**
-  - Inducing Demanders to Use Technology
-  - Inducing Suppliers to Adopt Technology
-- When consuming content or media, humans are often at the **mercy** of Technology Proliferation System
-- In the case of creative activities, Technology Proliferation System often **enhances** creativity
+インターネット：名刺 →SNS
+
+SNS や Google の様なインターネット以外のテクノロジーを用いたサービス/メディアにもその利用が自己目的化しているパターンは見られる。例えば、ドライブや、LP 収集、読書自慢など。これらは需要側のテクノロジー利用への誘導がインターネット以外のテクノロジーにも共通していることを表している。また、供給側についても、あるレーベルの競合他社が新しい LP というものを出せば、自分たちも同じものを出さなければ競争にならなくなると考えられる。私は、需要側にも供給側にも、テクノロジーに対するある意味での執着があり、これには二つの問題点があると考えた。
+
+過剰なテクノロジーの置き換え
+
+プロダクトやサービスの自己目的化による依存症
+
+ただし、私はここで考えた。これらの問題点が現れにくいパターンがあるのでは？それはクリエイティブな活動についてだった。クリエイティブな活動の場合、テクノロジーとの健全な関係性を築けるのかもしれない。つまり、テクノロジーの増殖法則がクリエイティビティをサポートするという関係性になる。それはクリエイティブという行為自体が、新しいものへの探究（供給側の誘導）と手段に対する習熟（需要側の誘導）の両方を必要とするからだ。これは先ほどのリストをコンシューマーからクリエイターに視点を移してみてみるとよくわかる。
+
+印刷：口頭伝承 → 執筆
+
+電気信号：コンサート → 録音編集
+
+エンジン：競馬 → カーレース
+
+コンピュータ：手書きのデザイン →Adobe
+
+インターネット：8mm フィルム →YouTube 投稿
+
+それぞれの新しいクリエイティブについては、既存のものと比べて劣っているとか優れているという話はできないが、新しい遊び場ができたような喜びがあり、それらのテクノロジーに対する没頭がクリエイティビティを高める良い方法となることが多い。執筆の場合は、まず文字を書くということに習熟する必要がある。文字を書く技術は印刷物が普及すればするほど高めやすい。また、執筆によって、口頭伝承では伝えきれなかった、セリフのリアリティや読者ごとの最適なスピードを実現することができる。このテクニックは筆者が本を書けば書くほど洗練されていく。まとめ。
+
+新しいテクノロジーには増殖法則がある
+
+需要者のテクノロジー利用への誘導
+
+供給者のテクノロジー導入への誘導
+
+コンテンツやメディアを消費する場合には、テクノロジーの増殖に人間が翻弄される場合が多い
+
+クリエイティブな活動をする場合には、テクノロジーの増殖がクリエイティビティを高めてくれる場合が多い

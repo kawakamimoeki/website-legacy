@@ -1,26 +1,24 @@
 ---
-title: 'Javascript Transpiler and ESLint are NOT Perfect'
+title: 'トランスパイラとESLintは完璧じゃない'
 date: '2022-11-01'
 ---
 
-## Summary
+## 前提
 
-- Even with a transpiler, **not all ECMAScript descriptions can be converted**.
-- Even with ESLint, **not all ECMAScript descriptions can be linted**.
+- トランスパイラ利用の有無に関わらず、ES2017 相当の（2021/10 時点でブラウザの対応率が十分に高い）記述がユーザーのブラウザで動くようにする、という方針
+- トランスパイラを用いても、**ECMAScript の全ての記述を変換してくれるわけではない**ことは薄々気づいていた
+- ESLint を用いても、**ECMAScript の全ての記述を解析してくれるわけではない**ことは薄々気づいていた
 
-## Inspect!
+## 目的
 
-When using ECMAScript, what does the transpiler convert and what does it parse?
+- ECMAScript を利用した場合に
+  - トランスパイラは何を変換し、何を無視するのかを検証する
+  - ESLint は何を解析し、何を無視するのかを検証する
 
-- Verify what the transpiler converts and what it ignores
-- Verify what ESLint parses and what it ignores
+## 検証用の入力
 
-[cc-kawakami/transpilers-and-eslint-are-not-perfect](https://github.com/cc-kawakami/transpilers-and-eslint-are-not-perfect)
-
-## Input for validation
-
-- Code samples based on ES6 to ESNext standards
-- Pick a function that you may have occasion to use
+- ES6 〜 ESNext の規格に基づいたコードサンプル
+  - 利用する機会がありそうな機能をピックアップ
 
 ```javascript
 /**
@@ -40,7 +38,7 @@ const fn = () => {
 
 /** classes */
 class Hoge {
-  fuga () {
+  fuga() {
     console.log('fuga')
   }
 }
@@ -53,15 +51,15 @@ class Hoge {
 const array = [1, 2, 3, 4, 5]
 console.log(array.includes(2))
 
-/** power operator */
-console.log(2**2)
+/** べき乗演算子 */
+console.log(2 ** 2)
 
 /**
  * ES2017
  * ------------------------------------------------
  */
 /** Async functions */
-async function log () {
+async function log() {
   console.log('hoge')
 }
 
@@ -75,13 +73,13 @@ console.log(Object.values(obj))
  */
 /** Spread Properties */
 const hoge = { fuga: 'piyo' }
-console.log({ .... .hoge })
+console.log({ ...hoge })
 
 /** RegExp named capture groups */
-console.log(/(? <year>[0-9]{4})year/.test('2021'))
+console.log(/(?<year>[0-9]{4})年/.test('2021年'))
 
 /** RegExp Lookbehind Assertions */
-console.log(/(? <=[0-9]+)\. [0-9]+/.test('.34'))
+console.log(/(?<=[0-9]+)\.[0-9]+/.test('.34'))
 
 /**
  * ES2019
@@ -102,7 +100,7 @@ console.log(hoge?.fuga)
  * ------------------------------------------------
  */
 /** Logical assignment operators */
-console.log(a ||= b)
+console.log((a ||= b))
 
 /** Numeric separators */
 console.log(100_000_000)
@@ -119,9 +117,9 @@ class Foo {
 console.log(Foo.bar)
 ```
 
-## Target transpiler and settings
+## 対象のトランスパイラと設定
 
-| No  |          name          |       target       |
+| No  |          名前          |     ターゲット     |
 | :-: | :--------------------: | :----------------: |
 |  1  |  Babel / conservative  | - ( `> 1% in JP` ) |
 |  2  |  Babel / progressive   | - ( `> 5% in JP` ) |
@@ -132,27 +130,26 @@ console.log(Foo.bar)
 |  7  |  Typescript / default  |        ES3         |
 |  8  | Typescript / to ES2017 |       ES2017       |
 
-## Inspection results.
+## 検証結果
 
-### Descriptions not converted by ALL transpiles
+### すべてのトランスパイルで変換されない記述
 
-- **RegExp named capture groups (ES2018)**
-- **RegExp Lookbehind Assertions (ES2018)**
-- **Flat array methods (ES2019)**
+- RegExp named capture groups (ES2018)
+- RegExp Lookbehind Assertions (ES2018)
+- flat array methods (ES2019)
 
-### Descriptions that cannot be validated with ESLint
+### ESLint で検証できない記述
 
-- **flat array methods (ES2019)**
+- flat array methods (ES2019)
+  - [freaktechnik/eslint-plugin-array-func](https://github.com/freaktechnik/eslint-plugin-array-func) を試してみたがダメ
 
----
+## その他気がついたこと
 
-## Other things I noticed
+- esbuild はデフォルトでコメントが削減される
 
-- esbuild reduces comments by default.
+## (おまけ) 実行時間
 
-## (extra) execution time
-
-| No  |          name          |       target       | time ( s ) |
+| No  |          名前          |     ターゲット     | 時間 ( s ) |
 | :-: | :--------------------: | :----------------: | :--------: |
 |  1  |  Babel / conservative  | - ( `> 1% in JP` ) |    0.63    |
 |  2  |  Babel / progressive   | - ( `> 5% in JP` ) |    0.53    |
@@ -163,12 +160,12 @@ console.log(Foo.bar)
 |  7  |  Typescript / default  |        ES3         |    1.21    |
 |  8  | Typescript / to ES2017 |       ES2017       |    1.36    |
 
-## Reference
+## 参考
 
 - [ESLint - Pluggable JavaScript linter](https://eslint.org/)
-- [Babel - The compiler for next generation JavaScript](https://babeljs.io/)
+- [Babel · The compiler for next generation JavaScript](https://babeljs.io/)
 - [esbuild - An extremely fast JavaScript bundler](https://esbuild.github.io/)
 - [rollup.js](https://rollupjs.org/guide/en/)
 - [egoist/rollup-plugin-esbuild: Use ESBuild with Rollup to transform ESNext and TypeScript code](https://github.com/egoist/rollup-plugin-esbuild)
 - [TypeScript: JavaScript With Syntax For Types.](https://www.typescriptlang.org/)
-- [ES6 to ES10 (es2015 to es2019) Summary - Qiita](https://qiita.com/ozoneboy/items/9c11ac3323ca94919052)
+- [ES6〜ES10(es2015〜es2019)まとめ - Qiita](https://qiita.com/ozoneboy/items/9c11ac3323ca94919052)

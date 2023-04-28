@@ -1,98 +1,100 @@
 ---
-title: Technological selection is rhythm game!
+title: 技術選定はリズムゲームだ
 date: '2022-11-24'
 ---
 
-Recently, I have been reading and learning about the technology selection of different teams.
+最近は、色々なチームの技術選定についての話を読んで勉強しています。
 
-There are many differences in technology selection between teams, one of which is how advanced they are.
+チーム間の技術選定の違う点さまざまありますが、その一つは、どのくらい先進的かと言うことです。
 
 ```
 Progressive vs Conservative
 ```
 
-Whenever we talk about technology selection, it's always a hot topic.
-Often the argument is, "It's too early to use this," or "Isn't this already out of date?" or "Isn't it too old?
+技術選定の話になると必ず話題になりますよね。
+よく「これを使うにはまだ早すぎる」「もうこれは古くない？」と言う議論になります。
 
-In reading various articles about technology selection, I have found myself thinking.
+色々な記事で技術選定の話を読んでいる中で、
 
-- **What are the criteria that make you feel you are too advanced or too conservative in selecting a certain technology?**
+- **ある技術選定に対して自分が先進的すぎるとか、保守的すぎるとか感じる基準ってなんなんだろ？**
 
-I'd like to dig deeper into this question.
+という疑問が出てきましたので深掘りしてみたいと思います。
 
-## What kind of technology selection do I consider too progressive?
+## どんな技術選定を先進的すぎると感じるか？
 
-For example, when I feel that a certain technology adoption is too advanced, it is when
+例えば、私が、ある技術採用に対して、先進的すぎると感じる場合は以下のような時です。
 
-- Rudimentary PR or issues are accumulating.
-- I don't see any blogs out there that have tried it.
-- I read the documentation and there are too many new concepts to understand.
+- 初歩的な PR や Issue が溜まっている
+- 世の中で、使ってみたブログを見かけない
+- ドキュメントを読んでも新しい概念が多すぎて理解できない。。
 
-All these senses are relative and have to be compared with other libraries and frameworks, but I understood that rather that is the point.
+これらの感覚はすべて相対的なもので他のライブラリやフレームワークと比較しなければなりませんが、むしろそこがポイントなのではないかと理解しました。
 
-## What kind of technology selection do you feel is too conservative?
+## どんな技術選定を保守的すぎると感じるか？
 
-On the other hand, I feel too conservative in the following cases
+逆に、以下の様な場合に保守的すぎると私は感じます。
 
-- PRs and issues are left unaddressed
-- A completely upwardly compatible library is being promoted.
-- The date of publication of the blog where you tried it is already long ago.
+- PR や Issue が放置されている
+- 完全なる上位互換のライブラリが盛り上がっている
+- 使ってみたブログの公開日がもうかなり前
 
-## Choosing which UI to adopt may be a similar story
+## 採用する UI の選択も似た話かも
 
-What is an easy-to-understand UI? I often ask myself, "What's the most common UI? This is because users do not use only our products. They use various applications in their daily lives and learn how to use computers on a daily basis.
+分かりやすい UI ってなんだ？ってなった時に私がよく唱える基準は、**「一般的なもの」** であるかどうかです。ユーザーは自分たちのプロダクトのみを使っているわけではないからです。いろんなアプリを生活の中で利用して日々コンピュータの使い方を学習しています。
 
-In that context, **good old UI**.
+その中で、**古き良き UI**
 
-- Black phone crux.
-- Floppy disk save symbols (do they still exist?)
-- scuumorphism (is this still around?)
+- 黒電話のクルクル
+- フロッピーディスクの保存マーク（これは今でもあるか。。）
+- スキューモーフィズム
 
-and **unseen UI** will confuse users.
-As well as avoiding these, we felt that we needed to **follow other product and industry trends** in technology selection.
+や、**見たこともない UI**を採用すれば、ユーザーは困惑するでしょう。
+これらを避けるのと同様に、技術選定でも、**他のプロダクトや業界の流れに準じる**必要があると感じました。
 
-## Rhythm of Technology
+## 技術のリズム
 
-**Get into the rhythm of the technology. Don't be too late or too early. **
+**技術のリズムにノリましょう。遅れても早すぎてもいけません。**
 
-**That's because technology is social. **
+**それは、技術が社会的なものだからです。**
 
-How do you get into the rhythm of technology?
+技術のリズムを掴むにはどうしたらいいでしょうか。
 
-- Dive into the actual library and language community
-  - Look in the repositories.
-  - Ask lots of questions.
-  - Contribute to things you like
-- Communicate with other teams
-  - Conferences
-  - Technical blog
-  - Hear about failures
+- 実際にライブラリや言語のコミュニティに飛び込んでみる
+  - リポジトリを覗いてみる
+  - たくさん質問してみる
+  - いいなと思ったものには積極的にコントリビュートする
+- 他のチームとコミュニケーションを取る
+  - カンファレンス
+  - 技術ブログ
+  - 失敗談を聞く
 
-I guess this is about right. Well, it's obvious, but you may need to pay attention to the following points.
+この辺りでしょうか。まあ当たり前ですが、次の点は注意する必要があるかもしれません。
 
-## Things that have nothing to do with the rhythm of technology.
+## 技術のリズムとは関係ないもの
 
-### My own impression
+### 自分の感想
 
-**The feeling of touching the technology by yourself may possibly not be reliable. **
-Even if a framework is pleasant to touch for you, it may not be so for the world, and it may pass away as it is.
+**自分で技術を触ってみた感触はもしかしたら当てにならないかもしれません。**
+もし、自分にとって触り心地のいいフレームワークであっても、世間的にそうであるとは限らず、そのままお亡くなりになる可能性もあるからです。
 
-### Innovativeness of the technology
+### 技術の革新性
 
-If we can use that technology to solve all sorts of problems! but if the community is not fully developed, security risks and bugs may be addressed too late.
+もしその技術を使って様々な課題を解決できる！と思っても、コミュニティが発展しきっていない場合には、セキュリティリスクやバグの対応が遅れてしまう可能性もあります。
 
-## However, there are cases where too advanced or too conservative a choice is a good one.
+## ただし先進的すぎたり、保守的すぎる選択が良いとされる場合もある
 
-I remember back in the day when Apple adopted flat design with iOS7 and got a lot of flak for it.
-However, as is the case with many of the policies that Apple has advocated, flat design has become an airy UI that has somehow made its way into the world.
-I think this is because Apple is a platformer. Platforms should and can tackle challenging technologies that can break through the status quo.
+昔、Apple が iOS7 でフラットデザインを採用し、非難を浴びたのを思い出しました。
+しかし Apple がこれまで提唱してきた多くの方針の例に漏れず、フラットデザインはいつの間にか世の中に浸透していって空気の様な UI となりました。
+これは、Apple がプラットフォーマーだからだと思います。プラットフォーマーは現状の課題を打開しうるがチャレンジングな技術に**取り組むべきだし、取り組みやすい**のです。
 
-Conversely, there are times when too conservative a choice is a good one. On the other hand, there are times when being too conservative is a good choice, such as when a very high level of safety is required. For example, the cockpit of an airplane should be improved slowly and for a long time, because a new UI might cause confusion.
+逆に、保守的すぎる選択が良いとされる場合もあります。それは、安全性が非常に高いレベルで要求される場合などです。例えば、飛行機のコックピットなどは、新しい UI にしてしまったら混乱を招いたりするかもしれないので、かなり長いゆっくり改善をしてくはずです。
 
-I think this is also true for technology selection. There are cases where exceptional choices should be made if safety is required or if it is a platformer of some kind.
+これは技術選定にも言えると思います。安全性が要求されたり、何かしらのプラットフォーマーである場合には例外的な選択をするべき場合があります。
 
-## Conclusion
+## まとめ
 
-- Technology selection should be done according to the rhythm of the world.
-- Actually, the same can be said for UI.
-- There are cases where exceptional choices should be made.
+- 技術選定は世間のリズムに合わせて行う
+- 実は UI にも同じことが言える
+- 例外的な選択をするべき場合もある
+
+でした。

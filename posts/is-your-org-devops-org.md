@@ -1,58 +1,68 @@
 ---
-title: 'Is your organization a "devops" organization?'
+title: 'あなたの組織は"devopsな"組織ですか？'
 date: '2022-11-01'
 ---
 
-In this article, we will consider together what a devops organization is and is not by looking at a simple question and how a "devops" organization responds to it.
+> DevOps（デブオプス）は、ソフトウェア開発手法の一つ。開発 (Development) と運用 (Operations) を組み合わせたかばん語であり、開発担当者と運用担当者が連携して協力する（さらに両担当者の境目もあいまいにする）開発手法をさす。ソフトウェアを迅速にビルドおよびテストする文化と環境により、確実なリリースを、以前よりも迅速に高い頻度で可能とする組織体制の構築を目指している。
 
-### Q. What are some of the issue your organization or team has been facing lately?
+[DevOps - Wikipedia](https://ja.wikipedia.org/wiki/DevOps)
 
-In a devops organization, we are not bound by the best practices or definitions of any particular methodology, and we can face our own challenges.
+> devops という用語自体は「development」（開発）と「operations」（運用）の混成後だ。だが、devops の基本概念は、組織全体に応用できるし、応用すべきものだ。成功を持続できる企業は、開発、運用チームだけから成り立っているわけではない。
 
-_Example: the development team and the marketing team are not working together to provide optimal hospitality to users via ads. _
+[O'Reilly Japan - Effective DevOps](https://www.oreilly.co.jp/books/9784873118352/)
 
-### Q. What have you changed recently in the way your organization or team works?
+今回は、簡単な質問とそれに対する "devops な"組織のあり方を見ていくことにより、devops な組織がどんな組織であり、どんな組織でないか、を一緒に考えてみましょう。
 
-A devops organization tries to face challenges through trial and error. There is time for trial and error.
+## Q. 最近組織やチームの課題はなんですか？
 
-_Example: We recently set up a joint cross-functional meeting. _
+devops な組織では特定の方法論のベストプラクティスや定義に囚われず、自分たちの課題と向き合うことができます。
 
-### Q. Is there a place for members to share their failure/success stories with the organization?
+_例) 開発チームとマーケティングチームの連携が取れておらず、広告経由のユーザーに対して最適なおもてなしができていないことです。_
 
-Sharing stories can help to
+## Q. 最近組織やチームのやり方で変えてみたことはなんですか？
 
-- Increases transparency and builds trust within the team
-- Colleagues can tell you how to prevent a damaging mistake before it is actually made
-- More time available to solve new problems and encourage innovation.
+devops な組織は課題と向き合い試行錯誤を行おうとします。試行錯誤を行う時間が用意されています。
 
-_Example: Our development team has a meeting every morning to share what happened yesterday. _
+_例) 最近、職種を横断した合同のミーティングを用意しました。_
 
-### Q. Do one team and another use the same communication tools?
+## Q. メンバーの失敗・成功のストーリーを組織に共有する場所はありますか？
 
-The fact that they use the same communication tools is a result of the two teams trying to communicate with each other. Two teams that do not communicate will not communicate just because they have Slack as a common tool.
+ストーリーを共有することで、
 
-_Example: The development team and the marketing team communicate through the same Slack channel and have a lively exchange of ideas. _
+- チーム内の透明性が増し、チーム内に信頼が生まれます
+- 実際にダメージの大きいミスをする前に、それを防ぐ方法を同僚が伝えることができます
+- 新しい問題の解決に使える時間が増え、イノベーションが促進されます
 
-### Q. How many metrics do you have to measure your organization's success?
+_例) 私たちの開発チームは毎朝、昨日起きたことを共有するミーティングがあります。_
 
-Insights into success.
+## Q. あるチームとほかのチームが同じコミュニケーションツールを使っていますか？
 
-_### e.g.) My organization measures conversion rates and the amount of user activity (PV, click events, etc.). We measure site latency. _
+同じコミュニケーションツールを使えているということは、その 2 つのチームが互いにコミュニケーションを取ろうとしていることの結果です。コミュニケーションをしない 2 つのチームは、たとえ共通のツールとして Slack を導入したからといって、コミュニケーションをするようになる訳ではありません。
 
-### Q. Is your organization's success measurement data publicly available?
+_例) 開発チームとマーケティングチームは同じ Slack のチャンネルでコミュニケーションをとっており、活発な意見交換が行われています。_
 
-If measurement data is publicly available, even employees without in-depth knowledge of operations (e.g., front-end engineers) can draw insights and decisions for iterative improvement.
+## Q. 組織の成功を測るための指標はどのくらいありますか？
 
-_example) In my organization, Google Analytics data is publicly available to the development team, marketing team, stakeholders, and customers. However, outside of the development team, only some of the data is open to the public and does not lead to deeper insights. _
+成功に向けた洞察を得ることができます。
 
-### Q. Are your organization's rules explicit?
+_例) 私の組織ではコンバージョン率やユーザーの行動量（PV やクリックイベントなど）を計測しています。サイトのレイテンシーを計測しています。_
 
-Explicit rules allow new members to trace back the organization's past failures. Implicit rules are difficult for new members to notice and can lead to the same mistakes being repeated.
+## Q. 組織の成功の計測データは公開されていますか？
 
-_Example: Our team's wiki summarizes how to do code reviews, what to check after deploying, etc. _
+計測データが公開されていれば、運用について深い知識のない社員（例えばフロントエンドエンジニア）でも、反復的な改善のための知見や判断を引き出すことができます。
+
+_例) 私の組織では、Google アナリティクスのデータは、開発チーム、マーケティングチーム、ステークホルダー、顧客に公開されています。ただし、開発チーム以外には、一部のデータのみ公開されていて、深い洞察への誘導はありません。_
+
+## Q.　組織のルールは明示されていますか？
+
+ルールを明示することによって、新しく参加したメンバーが組織の過去の失敗を遡ることができます。暗黙的なルールは、新しいメンバーにとって気付きにくいものであり、同じ失敗を繰り返してしまうこともあります。
+
+_例) 私たちのチームの Wiki にはコードレビューのやり方やデプロイ後の確認事項などがまとまっています。_
 
 ---
 
-What were your organization's answers?
+あなたの組織の回答はどのようなものでしたか？私も自分の組織について振り返ることができました 😄
 
-Thank you very much.
+## 参考
+
+[O'Reilly Japan - Effective DevOps](https://www.oreilly.co.jp/books/9784873118352/)

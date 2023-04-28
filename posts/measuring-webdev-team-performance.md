@@ -1,81 +1,44 @@
 ---
-title: 'Measuring webdev team performance'
+title: ウェブ開発チームのパフォーマンスを測る指標をまとめてみた
 date: '2022-11-02'
 ---
 
-I deployed [WebDev Metrics](https://webdev-metrics.netlify.app/) to summarize the metrics that I feel measure the performance of software development teams in my work.
+私が仕事をしている中で感じているウェブ開発チームのパフォーマンスを測る指標についてまとめて、 [WebDev Metrics](https://webdev-metrics.netlify.app/) を書いてみました。
 
-## Product Usability
+![](https://storage.googleapis.com/zenn-user-upload/727a357c665d-20221024.png)
 
-Fewer barriers for users to achieve their goals. It can also be called a trusting relationship between the user and the product.
+こちらの日本語解説になります。
 
-### Task Success Rate
+## プロダクトのユーザービリティ
 
-Users will give up on their goals if they feel distrustful of the product or if it is too complicated to operate before they achieve their goals.
+ユーザーが使いやすいプロダクトとはどんなものかを知っていて、ユーザーがどれだけ上手くプロダクトを使っているかを計測し、それを改善する方法を実現していなければ、プロダクトがユーザーにとって使いやすいものになりません。
 
-### Time-on-Task
+例えば、タスクを完了させるまでに何ステップも操作があるとユーザーは離れていってしまし、複雑すぎると嫌になってしまいます。
 
-The time to complete a goal is affected by how few operations are required to do so and the ease of understanding.
-For example, if there are too many steps to complete a task, users will leave, and if it is too complicated, they will get tired of it.
+また、ユーザーは自分でプロダクトをコントロールして情報を取得することはできるだけしたくないはず。空から情報が降ってくるような体験を目指してください。
 
-### Search vs Navigation
+ユーザー行動の結果や計測可能な指標だけでなく、プロダクトの意見を直接聞いてみると、思わぬ評価の観点を与えてくれる可能性があります。この評価も視野にいれるべきです。
 
-Also, users do not want to control the product and retrieve information by themselves as much as possible. Aim for an experience that feels like information is falling from the sky.
+また、ユーザーの満足感を直接聞いてみないと、自分たちのプロダクトが悪魔的な手法でユーザーを取り込んでいるかもしれない可能性を払拭することはできません。このような手法は、長期的に見てサービスや会社の信用を落としかねません。
 
-### System Usability Scale
+参考 [The 7 most important UX KPIs and how to measure them - TestingTime](https://www.testingtime.com/en/blog/important-ux-kpis/)
 
-In addition to the results of user behavior and measurable indicators, direct feedback on the product may provide unexpected perspectives for evaluation. This evaluation should also be taken into account.
+## 開発パフォーマンス
 
-### Customer Satisfaction
+どれだけリリースを軽快に行っているか？を測ることでそのチームのパフォーマンスを知ることができます。
 
-Without directly asking users about their satisfaction, we cannot dispel the possibility that our product may be using devious methods to engage users. Such methods may discredit the service and the company in the long run.
+またリリースだけでなく、バグを避けたり、バグを解消したりする能力は、プロダクトの信頼を維持するために必要不可欠です。
 
-Reference [The 7 most important UX KPIs and how to measure them - TestingTime](https://www.testingtime.com/en/blog/important-ux-kpis/)
+これらの能力のほとんどは技術的なルーチンで構成されていると思っています。それは、コミュニケーションツールや CI/CD ツール、監視ツールなどツールの仕様に依存する部分もあります。
 
-## Development Performance
+参考 [Use Four Keys metrics like change failure rate to measure your DevOps performance | Google Cloud Blog](https://cloud.google.com/blog/products/devops-sre/using-the-four-keys-to-measure-your-devops-performance?hl=en)
 
-How much and how accurately the development team can do its job is the power to improve the product.
+## チームの効果性
 
-### Time to Restore Service
+開発パフォーマンスの指標を計測し、分析しても、その技術的な原因は特定できても、人間の心理的な問題までは分かりません。
 
-A method must be established to get the product out of a tight spot. We should not be in a hurry to start the recovery process, but rather follow a set procedure and start the recovery process in a good, prepared environment.
+チームの心理的な側面を測ることは難しいですが、いくつかの指標を心にとどめておき、チームで同意を取っておくだけで、自分たちに起きた問題に気づく可能性が高まると思っています。
 
-### Change Failure Rate
+例えば、心理的安全性です。これは、各メンバーが失敗を恐れず、新しいことや難しい課題に挑戦するために必要な条件です。これがなければ、新しい技術を取り入れることが難しくなったり、失敗を報告せず、チームの課題として議題に上げる機会を逃してしまいます。
 
-Consider ways to increase the accuracy of testing and the likelihood that errors can be detected before release. This is not craftsmanship.
-
-### Lead Time for Changes
-
-Once a method of improvement is determined, it must be immediately reflected in the product. It may be a good time to wait for the mechanical process over a cup of coffee, though.
-
-### Deployment Frequency
-
-A team that can make 10 changes in the same amount of time versus a team that can make 100 may have a 10-fold difference in the likelihood of a good product.
-
-Reference [Use Four Keys metrics like change failure rate to measure your DevOps performance | Google Cloud Blog](https://cloud.google.com/blog/products/devops-sre/using-the-four-keys-to-measure-your-devops-performance?hl=en)
-
-## Team Effectiveness
-
-If the psychological aspect of the team is not fulfilled, nothing can begin. It is important to focus not on the team members, but on the relationship between them.
-
-### Impact
-
-Congrats to everyone for their contributions against the team. Please listen.
-
-### Psychological Safety
-
-This is a necessary condition for each member of the team to take on new and difficult tasks without fear of failure. Without it, it would be difficult to incorporate new technologies, or miss opportunities to not report failures and put them on the agenda as a team issue.
-
-### Dependability
-
-Responding with a smile when asked for help is as easy as creating a library with an easy-to-understand API.
-
-### Structure and Clarity
-
-When everyone knows what they are supposed to do and who their role is, there is no need for daily instructions.
-
-### Meaning
-
-Define a useful product for people. Then, gather members who agree with it.
-
-Reference [re:Work - Guide: Understand team effectiveness](https://rework.withgoogle.com/guides/understanding-team-effectiveness/steps/introduction/#introduction)
+参考 [re:Work - Guide: Understand team effectiveness](https://rework.withgoogle.com/guides/understanding-team-effectiveness/steps/introduction/#introduction)

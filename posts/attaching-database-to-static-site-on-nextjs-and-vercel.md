@@ -1,18 +1,17 @@
 ---
-title: 'Attaching database to static site on Next.js and Vercel'
+title: Next.jsとVercel の静的サイトにPrismaでデータベースをそっと"添える"
 date: '2022-11-08'
 ---
 
-I recently added a like button to my website.
+最近、自分のウェブサイトに「いいね」ボタンを追加しました。
 
-In the past, if I wanted to add a little database processing to a static website, I either had to change the app implementation from a static site generator to a server-side framework like Ruby on Rails, or I had to have another DB server and hit API. Site functionality affected the entire architecture.
+過去に、静的なウェブサイトに少しのデータベース処理を追加したい場合、アプリの実装を静的サイトジェネレータから Ruby on Rails のようなサーバーサイドフレームワークに変更するか、別の DB サーバーを持ち、API にアクセスする必要がありました。サイトの機能がアーキテクチャ全体に影響を与えました。
 
-However, this experiment made us realize that Next.js and Vercel have a very **application-first** philosophy that can extend the functionality of a website without major architectural changes.
-This is largely due to the fact that Vercel is able to receive the Rest API with Serverless Function.
+しかし、この実験により、Next.js と Vercel は、大幅なアーキテクチャの変更なしにウェブサイトの機能を拡張できる非常に **アプリケーション重視** の哲学を持っていることがわかりました。これは、Vercel が Serverless Function で Rest API を受け取れるためです。
 
-Let's see.
+以下を見てみましょう。
 
-First, we will implement the UI.
+まず、UI を実装します。
 
 ```jsx:components/like
 import { useState } from 'react'
@@ -46,7 +45,7 @@ export default function Component(props) {
 }
 ```
 
-Where the DB is concerned, `TODO: create like`
+データベースの場合、 `TODO: create like`
 
 ```jsx:components/like
 const createLike = async () => {
@@ -58,20 +57,19 @@ const createLike = async () => {
 }
 ```
 
-and `likeCount`.
+そして、 `likeCount`。
 
 ```jsx:components/like
 const [likeCount, setLikeCount] = useState(props.likeCount)
 ```
 
-Now, we will prepare PostgreSQL and Prisma, an ORM made with Node.js.
+次に、Node.js で作成された ORM である Prisma と PostgreSQL を準備します。
 
 ```bash
 npm i prisma
 ```
 
-This is `prisma/schema.prisma`, schema file.
-Like model is very simple.
+これは `prisma/schema.prisma`、スキーマファイルです。Like モデルは非常にシンプルです。
 
 ```prisma:prisma/schema.prisma
 generator client {
@@ -84,91 +82,5 @@ datasource db {
 }
 
 model Like {
-  id    Int     @id @default(autoincrement())
-}
+  id    Int     @id @
 ```
-
-And we will generate and aplly migrations.
-
-```
-npm run prisma migrate dev
-```
-
-Next, we will generate prisma client to access database.
-
-```
-npm run prisma generate
-```
-
-Then, we will implement the part that actually accesses the database.
-
-If you export a function called `getServerSideProps` (Server-Side Rendering) from a page, Next.js will pre-render this page on each request using the data returned by `getServerSideProps`. So, we get like count on here and set props.
-
-```javascript:pages/index.js
-import { PrismaClient } from '@prisma/client'
-const prisma = new PrismaClient()
-
-export default function Home(props) {
-  //...
-}
-
-export async function getServerSideProps(context) {
-  const likeCount = await prisma.like.count()
-  return {
-    props: { likeCount: likeCount }
-  }
-}
-```
-
-Then the update part of like. We will create post endpoint to create a like record
-
-```javascript:api/like/create.js
-import { PrismaClient } from '@prisma/client'
-const prisma = new PrismaClient()
-
-export default async function handler(req, res) {
-  const like = await prisma.like.create()
-  res.status(201).json(like)
-}
-```
-
-and add the fetching process to callback.
-
-```jsx:components/like
-const createLike = async () => {
-  if (liked === false) {
-    fetch('/api/like/create')
-    setLikeCount(likeCount + 1)
-    setLiked(true)
-  }
-}
-```
-
-This concludes the implementation part.
-
-Next, let's set up Vercel to use Prisma and prepare a PostgreSQL server.
-
-I have a PostgreSQL server at render.com.
-
-[Cloud Application Hosting for Developers | Render](https://render.com/)
-
-Prisma has put together a method for deploying to
-Vercel, so I will try to follow this.
-
-[How to deploy a Prisma app to Vercel](https://www.prisma.io/docs/guides/deployment/deployment-guides/deploying-to-vercel)
-
-```js:package.json
-{
-  "scripts": {
-    "vercel-build": "prisma generate && prisma migrate deploy && next build"
-  }
-}
-```
-
-Then, we will environment variable for Prisma to Vercel.
-
-That's it!
-
-We were able to add DB-based functionality to our site without major architectural changes. It was a very freeing development experience, and I think I understand a little bit of what Next.js and Vercel are trying to do.
-
-Thank you for reading.

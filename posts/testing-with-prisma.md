@@ -3,21 +3,25 @@ title: 'Testing with Prisma'
 date: '2022-11-05'
 ---
 
-I have recently been experimenting with full stack app development using next.js and prisma. By the way, take a look at the prisma documentation.
+タイトル：Prisma を使ったテスト
 
-[Integration testing with Prisma](https://www.prisma.io/docs/guides/testing/integration-testing)
+日付：2022 年 11 月 5 日
 
-> One way to simulate a real world environment is to use Docker to encapsulate a database and some test data. This can be spun up and torn down with the tests and so operate as an isolated environment away from your production databases.
+最近、Next.js と Prisma を使ったフルスタックアプリ開発を試しています。ちなみに、Prisma のドキュメントを見てみてください。
 
-> This guide assumes you have Docker and Docker Compose installed on your machine as well as Jest setup in your project.
+[Prisma を使った統合テスト](https://www.prisma.io/docs/guides/testing/integration-testing)
 
-I see what you're saying, but... Do you want to prepare that much for testing? I want to run tests more easily and nimbly.
+> 現実の環境をシミュレートする方法の一つは、Docker を使用してデータベースとテストデータをカプセル化することです。これは、テストと共にスピンアップしてダウンすることができるため、プロダクションデータベースから独立した環境として機能します。
 
-And this is important, because the documentation does not tell us how to clean up the database easily for each test case, which makes the tests independent and changes their behavior depending on the order of the tests.
+> このガイドでは、マシンに Docker と Docker Compose がインストールされていること、そしてプロジェクトに Jest がセットアップされていることを前提としています。
 
-So let's do it.
+そうですが、本当にテストのためにそこまで準備する必要がありますか？もっと簡単にテストを実行したいです。
 
-In this case, we have prepared the following schema.
+そして、これは重要です。ドキュメントには、テストケースごとにデータベースを簡単にクリーンアップする方法が書かれていないため、テストが独立しておらず、テストの順序に応じて動作が変わってしまいます。
+
+では、やってみましょう。
+
+今回は、次のスキーマを準備しました。
 
 ```prisma
 datasource db {
@@ -40,7 +44,7 @@ model User {
 npx prisma generate
 ```
 
-First, we can use Dotenv to specify the URL of the database for testing.
+最初に、Dotenv を使用して、テスト用のデータベースの URL を指定します。
 
 ```
 npm i -D dotenv
@@ -51,7 +55,7 @@ npm i -D dotenv
 DB_URL=postgresql://user:password@127.0.0.1:5432/example-test
 ```
 
-Next, we will define the test process. Here, let's use the "pre" and "post" functions of script.
+次に、テストプロセスを定義します。ここでは、スクリプトの「pre」と「post」関数を使用しましょう。
 
 ```json
 {
@@ -63,9 +67,9 @@ Next, we will define the test process. Here, let's use the "pre" and "post" func
 }
 ```
 
-The point here is to use Dotenv's API to use `.env.test`.
+ここでポイントとなるのは、Dotenv の API を使って`.env.test`を使用することです。
 
-The last thing we need to do is clean up the database, which is the first thing we applied for. In the case of mocha, this is done with beforeEach, afterEach.
+最後に行うべきことは、最初に申請したデータベースのクリーンアップです。mocha の場合、beforeEach、afterEach を使用してこれを行います。
 
 ```javascript
 import { PrismaClient } from '@prisma/client'
@@ -104,11 +108,11 @@ const cleaner = new PrismaCleaner()
 
 describe('prisma-cleaner', () => {
   beforeEach(async () => {
-    await cleaner.clean() # This
+    await cleaner.clean() # ここ
   })
 
   afterEach(async () => {
-    await cleaner.clean() # This
+    await cleaner.clean() # ここ
   })
 
   describe('first creation', () => {
@@ -137,17 +141,17 @@ describe('prisma-cleaner', () => {
 })
 ```
 
-This is all you need to do.
+以上で完了です。
 
-By the way, I found several libraries for this database cleanup, but none of them worked perfectly.
+ちなみに、このデータベースのクリーンアップのためにいくつかのライブラリが存在することがわかりましたが、どれも完璧に機能しなかったようです。
 
 - [emerleite/node-database-cleaner: The simplest way to clean your database after tests](https://github.com/emerleite/node-database-cleaner)
 - [blazing-edge-labs/node-postgres-cleaner: Extremely simple way to clean your postgres database](https://github.com/blazing-edge-labs/node-postgres-cleaner)
 
-For now, I'll just publish my library this time.
+とりあえず、自分でライブラリを公開することにしました。
 
 - [cc-kawakami/prisma-cleaner: Prisma Cleaner is a utility for cleaning database with Prisma in testing. You can use in Jest or Mocha, etc.](https://github.com/cc-kawakami/prisma-cleaner)
 
-The Prisma development experience is not as bad as I thought it would be, but I feel that the testing environment is not yet ready, so I wanted to commit to it!
+Prisma の開発体験は予想していたほど悪くないと感じましたが、テスト環境はまだ準備ができていないと感じました。それに取り組みたかったので、この記事を書きました。
 
-Thank you for reading.
+読んでくださってありがとうございました。

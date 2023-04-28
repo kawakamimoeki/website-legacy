@@ -1,20 +1,18 @@
 ---
-title: 'Eliminating unused selectors from Sass'
+title: Sassでも、利用していないCSSセレクタを特定したかった
 date: '2022-11-02'
 ---
 
-For CSS, there is https://purgecss.com.
+CSS なら、https://purgecss.com がある。
 
-But what about Sass?
-You want to eliminate unused selectors not only from the built result, but also from the Sass source code.
+では Sass なら？
+ビルドされた結果からだけでなく Sass のソースコードからも使っていないセレクタを抹消したい気持ちはありますよね。
 
-I tried it. [cc-kawakami/uchini: Find unused Sass codes](https://github.com/cc-kawakami/uchini)
+試みました。[cc-kawakami/uchini: Find unused Sass codes](https://github.com/cc-kawakami/uchini)
 
 ```bash
 npm i -g uchini
 ```
-
-("Uchini" is Japanese for unloading cargo from a ship that is about to sink.)
 
 ```bash
 $ uchini ls --help
@@ -25,10 +23,10 @@ USAGE
     <value>] [--unusedOnly]
 
 FLAGS
-  --content=<value> (required) Path to content file
-  --output=<value> Path to output file
-  --scss=<value> (required) Path to CSS file
-  --unusedOnly Unused selectors only
+  --content=<value>  (required) Path to content file
+  --output=<value>   Path to output file
+  --scss=<value>     (required) Path to CSS file
+  --unusedOnly       Unused selectors only
 
 DESCRIPTION
   List CSS selectors usage
@@ -58,13 +56,13 @@ uchini ls --scss path/to/scss --content 'path/**/*.html' --output output.json
 ]
 ```
 
-Internally we use the following.
+内部では以下のものを利用しています。
 
 - [sass - npm](https://www.npmjs.com/package/sass)
 - [purgecss - npm](https://www.npmjs.com/package/purgecss)
 - [source-map - npm](https://www.npmjs.com/package/source-map)
 
-First, compile Sass.
+まずは、Sass をコンパイルします。
 
 ```javascript
 const compiled = sass.compile(scss, {
@@ -74,13 +72,13 @@ const compiled = sass.compile(scss, {
 })
 ```
 
-Then, the source-map creates a consumer.
+そして、source-map で consumer を生成します。
 
 ```javascript
 const consumer = await new sourceMap.SourceMapConsumer(compiled.sourceMap)
 ```
 
-Next, we identify the CSS selectors that are not being used by purgecss.
+次に、purgecss で利用されていない CSS セレクタを洗い出します。
 
 ```javascript
 const rejectedCSS = await new PurgeCSS().purge({
@@ -90,15 +88,13 @@ const rejectedCSS = await new PurgeCSS().purge({
 })[0].rejected
 ```
 
-Then, the consumer can use the source map to traverse the Sass lines corresponding to a given line of CSS.
+そして、consumer によってソースマップを利用して、CSS のある行に対応する Sass の行を辿ることができます。
 
 ```javascript
 const position = this.consumer.originalPositionFor({
-  line: 1, // since the source map is a single line in compressed
+  line: 1, // compressed でソースマップが一行になっているので
   column: startOfSelector
 })
 ```
 
-That's it.
-
-Thank you for reading.
+これで終わり。

@@ -1,22 +1,22 @@
 ---
-title: "Using Docker's Multi-stage build to reduce build time"
+title: Dockerのマルチステージビルドを利用してビルド時間を短縮する
 date: '2022-11-01'
 ---
 
-The reason behind multi-stage builds is to reduce image size.
+マルチステージビルドの背景にはイメージサイズの削減があります。
 
-> It was actually very common to have one Dockerfile to use for development (which contained everything needed to build your application), and a slimmed-down one to use for production, which only contained your application and exactly what was needed to run it. This has been referred to as the “builder pattern”. Maintaining two Dockerfiles is not ideal.
+> イメージをビルドする際に取り組むことといえば、ほとんどがそのイメージサイズを小さく抑えることです。 Dockerfile 内の各命令は、イメージに対してレイヤーを追加します。 そこで次のレイヤー処理に入る前には、不要となった生成物はクリーンアップしておくことが必要です。 現実に効果的な Dockerfile を書くためには、いつもながらトリッキーなシェルのテクニックや、レイヤーができる限り小さくなるようなロジックを考えたりすることが必要でした。 つまり各レイヤーは、それ以前のレイヤーから受け継ぐべき生成物のみを持ち、他のものは一切持たないようにすることが必要であったわけです。
 
-[Multi-stage builds | Docker Documentation](https://docs.docker.com/build/building/multi-stage/)
+[マルチステージビルドの利用 — Docker-docs-ja 19.03 ドキュメント](https://docs.docker.jp/engine/userguide/eng-image/multistage-build.html)
 
-However, in my case, the **build time** is more serious than the image size.
-This is because the language I use most often is **scripting language**.
+ただ、私の場合は、イメージサイズよりもその**ビルド時間の大きさの方**が深刻です。
+なぜなら、私がよく使う言語は**スクリプト言語**だからです。
 
-However, it seems that this multi-stage build, if used properly, can reduce the build time considerably.
+ところが、このマルチステージビルド、うまく利用すればかなりビルド時間の短縮を実現することができるようです。
 
-Let's give it a try. Using a simple Ruby on Rails and Node.js asset environment as an example, we'll start with a single-stage build and try to improve from there.
+やってみましょう。簡単な Ruby on Rails と Node.js によるアセット環境を例に、まずはシングルステージの場合から初めて、そこから改善を試みていきます。
 
-```dockerfile
+```Dockerfile
 FROM ruby:3.1
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && apt-get install -y nodejs
 RUN npm install --global yarn@1.22.19
@@ -27,56 +27,56 @@ COPY . .
 RUN bundle install
 RUN yarn install
 RUN RAILS_ENV=production bundle exec rails assets:precompile
-CMD ["bin/rails", "s"].
+CMD ["bin/rails", "s"]
 ```
 
-Finally, the rails
+最後に怒涛の
 
-```dockerfile
+```Dockerfile
 RUN bundle install
 RUN yarn install
 RUN RAILS_ENV=production bundle exec rails assets:precompile
 ```
 
-Done, but this is where it will most likely take the most time.
-Even more annoying is that if any of the sources are modified, the
+が行われていますが、ほとんどの場合最も時間がかかるのはここです。
+さらに厄介なのは、ソースのいずれかが変更された場合、
 
-```dockerfile
+```Dockerfile
 COPY . .
 ```
 
-The layer cache will be perged, so be sure to use
+のレイヤーキャッシュが崩れるので、必ず
 
-```dockerfile
+```Dockerfile
 RUN bundle install
 RUN yarn install
 RUN RAILS_ENV=production bundle exec rails assets:precompile
 ```
 
-will be executed.
-This is always the case due to the layer caching mechanism.
+が実行されます。
+これはレイヤーキャッシュの仕組みにより必ずそのようになるのです。
 
-> Once the cache is invalidated, all subsequent Dockerfile commands generate new images and the cache is not used.
+> キャッシュが無効になると、次に続く Dockerfile コマンドは新たなイメージを生成し、キャッシュを使いません。
 
-[Dockerfile Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+[Dockerfile のベスト・プラクティス — Docker-docs-ja 20.10 ドキュメント](https://docs.docker.jp/develop/develop-images/dockerfile_best-practices.html#add-copy)
 
-To solve this problem, the next step is to prepare a `builder` stage.
+この問題を解決するために、次は `builder` ステージを用意してみます。
 
-```dockerfile
+```Dockerfile
 FROM ruby:3.1 as builder
 WORKDIR /tmp
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && apt-get install -y nodejs
 RUN npm install --global yarn@1.22.19
 RUN gem install bundler
-COPY Gemfile Gemfile.lock . / /
+COPY Gemfile Gemfile.lock ./
 RUN bundle install
-COPY package.json yarn.lock . /
+COPY package.json yarn.lock ./
 RUN yarn install
 COPY app/assets app/assets
 COPY app/javascript app/javascript
 COPY bin bin
 COPY config config
-COPY Rakefile vite.config.ts . /
+COPY Rakefile vite.config.ts ./
 RUN RAILS_ENV=production bundle exec rails assets:precompile
 
 FROM ruby:3.1 as app
@@ -85,39 +85,39 @@ WORKDIR /rails
 COPY --from=builder /usr/local/bundle /usr/local/bundle
 COPY --from=builder /tmp/public/vite public/vite
 COPY . .
-CMD ["bin/rails", "s"].
+CMD ["bin/rails", "s"]
 ```
 
-Notable here.
+注目すべきは、ここです。
 
-```dockerfile
+```Dockerfile
 COPY --from=builder /usr/local/bundle /usr/local/bundle
 COPY --from=builder /tmp/public/vite public/vite
 COPY . .
 ```
 
-`--from` allows you to copy files from other stages, but the **problem** is the `COPY` order\*\*.
-First, you need to copy the potentially time-consuming
+`--from` では他のステージからファイルをコピーすることができますが、**問題は `COPY` の順番**です。
+まず、時間のかかる可能性が高い、
 
-```dockerfile
+```Dockerfile
 COPY --from=builder /usr/local/bundle /usr/local/bundle
 COPY --from=builder /tmp/public/vite public/vite
 ```
 
-is written first, followed by:
+が先に記述され、その後
 
-```dockerfile
+```Dockerfile
 COPY . .
 ```
 
-Now `bundle install` will not be executed unless one of the `Gemfile` `Gemfile.lock` is modified.
+が実行されます。これで、`Gemfile` `Gemfile.lock` のいずれかが変更されない限り、`bundle install` は実行されません。
 
-However, the problem remains.
-If you change any of the `Gemfile` `Gemfile.lock`, it will even run `yarn install`.
+ただ、問題は残されていて、
+`Gemfile` `Gemfile.lock` のいずれかを変更してしまうと、`yarn install` まで実行されてしまいます。
 
-So let's go to the final form for now.
+では、ここで今の所の最終形態に行っていましょう。
 
-```dockerfile
+```Dockerfile
 FROM ruby:3.1 as builder
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && apt-get install -y nodejs
 RUN npm install --global yarn@1.22.19
@@ -125,12 +125,12 @@ RUN npm install --global yarn@1.22.19
 FROM ruby:3.1 as bundler
 WORKDIR /tmp
 RUN gem install bundler
-COPY Gemfile Gemfile.lock . /tmp
+COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
 FROM node as yarn
 WORKDIR /tmp
-COPY package.json yarn.lock . / / RUN yarn install
+COPY package.json yarn.lock ./
 RUN yarn install
 
 FROM builder as assets
@@ -141,7 +141,7 @@ COPY app/assets app/assets
 COPY app/javascript app/javascript
 COPY bin bin
 COPY config config
-COPY Rakefile Gemfile Gemfile.lock package.json yarn.lock vite.config.ts . /
+COPY Rakefile Gemfile Gemfile.lock package.json yarn.lock vite.config.ts ./
 RUN RAILS_ENV=production bundle exec rails assets:precompile
 
 FROM ruby:3.1 as app
@@ -150,34 +150,34 @@ WORKDIR /rails
 COPY --from=bundler /usr/local/bundle /usr/local/bundle
 COPY --from=assets /tmp/public/vite public/vite
 COPY . .
-CMD ["bin/rails", "s"].
+CMD ["bin/rails", "s"]
 ```
 
 👍
 
-In this `Dockerfile`.
+この `Dockerfile` では、
 
-- **Controls caching by only capturing changes to files on which the executing process depends**.
+- **実行プロセスが依存しているファイルの変更のみを捕捉し、キャッシュを制御している**
 
-which is achieved by the `Dockerfile`. Now, for example, if `Gemfile.lock` is changed, `yarn install` will not be executed.
+を実現しています。これで、例えば `Gemfile.lock` が変更されても `yarn install` は実行されることはありません。
 
-**Furthermore**.
+**さらに**
 
-**You may have noticed that the `yarn` stage and the `bundler` stage are processed in parallel**.
+**`yarn` ステージと `bundler` ステージは、並列処理される**ことにお気づきでしょうか。
 
-The structure of the execution is
+実行の構造としては、
 
-- `COPY --from=bundler /usr/local/bundle /usr/local/bundle`.
-  - `RUN bundle install`.
+- `COPY --from=bundler /usr/local/bundle /usr/local/bundle`
+  - `RUN bundle install`
 - `COPY --from=bundler /usr/local/bundle /usr/local/bundle`
   - `--from=yarn /tmp/node_modules node_modules`
-    - `RUN yarn install`.
+    - `RUN yarn install`
 
-and we can now run the necessary processes in parallel while resolving the `--from`!
+となり、`--from` を解決しつつ、必要な処理を並列で実行することができるようになりました！
 
----
+以上。
 
-- **Multi-stage builds can take full advantage of layer caching**.
-- **Multi-stage builds can achieve parallel processing**.
+- **マルチステージビルドで、レイヤーキャッシュを最大限に活かすことができる**
+- **マルチステージビルドで、並列処理を実現できる**
 
-Thank you for reading.
+でした。

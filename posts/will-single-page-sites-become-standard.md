@@ -1,17 +1,17 @@
 ---
-title: Will single-page sites become the standard?
+title: シングルページサイトが標準になるのか？
 date: '2022-12-03'
 ---
 
-Recently, I considered Astro indeed of Next.js as a blog implementation tool.
+最近、私はブログ実装ツールとして、Next.js の Astro を検討しました。
 
-What I wanted to focus on most is UX. Which is a more comfortable way to browse pages?
+私が最も重視したかったのは、ユーザーエクスペリエンスでした。ページを閲覧するためにはどちらの方法がより快適でしょうか？
 
-Therefore, I verified their docs because the pages are implemented with their product.
+そのため、彼らの製品でページが実装されているため、彼らのドキュメントを検証しました。
 
 - [Getting Started | Next.js](https://nextjs.org/docs/getting-started)
 - [Getting Started 🚀 Astro Documentation](https://docs.astro.build/en/getting-started/)
 
-The answer was very clear. I agree with Next.js docs, single page site. It's very comfortable. In Astro documentation, the first page load is quickly, but it is slowly when I click links. Next.js documentation is continuously light.
+答えは非常に明確でした。Next.js のドキュメントに同意し、単一ページサイトが非常に快適だと思いました。Astro のドキュメントでは、最初のページの読み込みは速いですが、リンクをクリックすると遅くなります。Next.js のドキュメントは常に軽量です。
 
-Finally, I decided that my blog is implemented with Next.js in the future. I made my decision based on my experience with the framework documentations. Will single-page sites become the standard? Or will the multi-page sites survive as a necessary and sufficient design?
+最終的に、私は将来的にブログを Next.js で実装することを決定しました。フレームワークのドキュメントを経験したことに基づいて決定しました。単一ページサイトは標準になるのでしょうか？それとも、マルチページサイトは必要かつ十分なデザインとして生き残るのでしょうか？

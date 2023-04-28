@@ -1,19 +1,19 @@
 ---
-title: 'The Admin Framework for Minimalist'
+title: 'ミニマリストのための管理画面フレームワーク'
 date: '2022-11-01'
 ---
 
-[thoughtbot/administrate](https://github.com/thoughtbot/administrate) is a well-known framework for administrative screen, but it's not developer friendly。I implement my own template files for Administrate, so when new Administrate version released, **it is hard to update Administrate because template file is changed.**
+[thoughtbot/administrate](https://github.com/thoughtbot/administrate) は管理画面用のよく知られたフレームワークですが、開発者にとっては使いづらいものでした。私は自分用の Administrate テンプレートファイルを実装しましたが、新しい Administrate のバージョンがリリースされるたびに、**テンプレートファイルが変更されるため、更新が難しくなります。**
 
-But administrative screens are very easy to commonize, so I want to use a framework or library.
+しかし、管理画面は共通化が非常に容易なため、フレームワークやライブラリを使用したいと思っています。
 
-I done this.
+そこで、これを実現しました。
 
 [cc-kawakami/micro-admin: A minimal Administration dashboard parts.](https://github.com/cc-kawakami/micro-admin)
 
-It can be used with Ruby on Rails or other frameworks because I implemented with [trailblazer/cells](https://github.com/trailblazer/cells).
+私は [trailblazer/cells](https://github.com/trailblazer/cells) を使用して実装したため、Ruby on Rails または他のフレームワークでも使用できます。
 
-You can define `ApplicationDashboard`.
+`ApplicationDashboard` を定義できます。
 
 ```ruby
 class ApplicationDashboard < MicroAdmin::Dashboard::Base
@@ -22,7 +22,7 @@ class ApplicationDashboard < MicroAdmin::Dashboard::Base
 end
 ```
 
-And you extends it, define dashboard classes for models and define attributes to show each screens.
+そして、それを拡張して、モデルごとにダッシュボードクラスを定義し、各画面に表示する属性を定義します。
 
 ```ruby
 class UserDashboard < ApplicationDashboard
@@ -44,19 +44,19 @@ class UserDashboard < ApplicationDashboard
 end
 ```
 
-It is a point, MicroAdmin does not have template for form items. So you must write template files for input or select , etc.
+重要な点として、MicroAdmin にはフォームアイテム用のテンプレートがないため、入力や選択などのテンプレートファイルを書く必要があります。
 
 ```html:/app/views/dashboards/user_dashboard/new/name.erb
 <input type="text" name="name" class="form-control">
 ```
 
-The `value` variable will come to the edit template.
+`value` 変数は、編集テンプレートに渡されます。
 
 ```html:/app/views/dashboards/user_dashboard/edit/name.erb
 <input type="text" name="name" value="<%= value %>" class="form-control">
 ```
 
-It can be rendered by calling the following.
+以下のように呼び出すことでレンダリングできます。
 
 ```ruby
 smith = User.new(id: 1, name: "Smith")
@@ -77,36 +77,5 @@ dashboard = UserDashboard.new
 ```
 
 ```erb
-<%= dashboard.edit(id: 1, values: {name: "Smith"}, errors: []) %>
+<%= dashboard.edit(id: 1, values: {name: "Smith"},
 ```
-
-As an example, the edit method output HTML like this.
-
-```html
-<header class="navbar border-bottom py-4">
-  <h2 class="m-0">Create TestModel</h2>
-  <div>
-    <a href="/admin/user" class="btn btn-primary"> Back to index </a>
-  </div>
-</header>
-<main class="p-4">
-  <ul class="alert alert-danger">
-    <li class="ml-3">Name is required</li>
-  </ul>
-  <form method="patch" action="/admin/user/1">
-    <div class="mb-3">
-      <label for="name" class="form-label">name</label>
-      <input type="text" name="name" value="Smith" class="form-control" />
-    </div>
-  </form>
-</main>
-```
-
-**And you can style the screens by loading Bootstrap!**
-
-The points:
-
-- the html of form item is customizable
-- not only Ruby on Rails
-
-Thank you.

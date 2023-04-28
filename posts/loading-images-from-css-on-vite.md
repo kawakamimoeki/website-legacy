@@ -1,26 +1,26 @@
 ---
-title: Loading images from CSS on Vite
+title: ViteでCSSから画像を参照する
 date: '2022-10-24'
 ---
 
-Vite uses `postcss-import` to achieve `@import`.
+Vite は、`postcss-import` を利用して `@import` を実現しています。
 
 [Features | Vite](https://vitejs.dev/guide/features.html#css)
 
-For example, suppose you have the following code.
+例えば以下のようなコードがあるとします。
 
 ```
 src/
   ├── img/
-  │ └── about-mainvisual.png
+  │    └── about-mainvisual.png
   └── css/
        ├── application.css
-       └─ pages/
+       └── pages/
              └── about.css
 ```
 
 ```css:src/css/application.css
-@import ". /pages/about.css"
+@import "./pages/about.css"
 
 main {
   background-color: white;
@@ -29,22 +29,22 @@ main {
 
 ```css:src/css/pages/about.css
 .about__mainvisual {
-  background-image: url(... /... /img/about-mainvisual.png);
+  background-image: url(../../img/about-mainvisual.png);
 }
 ```
 
-**This will not work. **
+**これだと上手くいきません。**
 
-Resolve `@import`. 2.
-Resolving `url()`.
+1. `@import` の解決
+2. `url()` の解決
 
-Vite will process in the following order: 1.
+の順に Vite は処理します。
 
-So, at 1.
+つまり、1 の時点で
 
 ```css:src/css/application.css
 .about_mainvisual {
-  background-image: url(... /... /img/about-mainvisual.png);
+  background-image: url(../../img/about-mainvisual.png);
 }
 
 main {
@@ -52,20 +52,18 @@ main {
 }
 ```
 
-is equivalent to temporarily generating CSS that says.
-So, if you use `url(...)', you will get `url(...)'. /... /img/about-mainvisual.png)` is wrong.
+という CSS が一時的に生成されているのと同義であると言えます。
+だから、`url(../../img/about-mainvisual.png)` のパスが間違っていると言えるのです。
 
-What should we do?
-The correct answer is.
+どうしたらいいのでしょう？
+正解は、
 
 ```diff css:src/css/pages/about.css
 .about__mainvisual {
-- background-image: url(... /... /img/about-mainvisual.png);
-+ background-image: url(/img/about-mainvisual.png);
+-  background-image: url(../../img/about-mainvisual.png);
++  background-image: url(/img/about-mainvisual.png);
 }
 ```
 
-**Please specify absolute paths. That way, the solution is independent of the image's referent.
-Here, it is assumed that the `root` setting of Vite is `src`. **
-
-Translated with www.DeepL.com/Translator (free version)
+**絶対パスで指定してください。そうすれば、画像の参照元に依存せずに解決することができます。
+ここで、Vite の `root` 設定が `src` になっていることが前提です。**
