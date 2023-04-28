@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
             transition: '0.5s'
           }}>
           <Header />
-          <div className="pt-20 mx-auto max-w-2xl p-4">
+          <div className="pt-20 mx-auto max-w-4xl p-4">
             <Component {...pageProps} />
             <Footer />
           </div>
