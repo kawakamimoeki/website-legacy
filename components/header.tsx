@@ -1,12 +1,8 @@
 import Image from 'next/image'
-import { useTheme } from 'next-themes'
-import { IoMoon, IoSunny } from 'react-icons/io5'
 import Link from 'next/link'
 import { GoMarkGithub } from 'react-icons/go'
 
 export default function Header() {
-  const { theme, setTheme } = useTheme()
-
   return (
     <div
       style={{
@@ -26,15 +22,8 @@ export default function Header() {
           />
         </Link>
         <div className="grow"></div>
-        <div className="cursor-pointer">
-          {theme === 'light' ? (
-            <IoSunny className="w-8" onClick={() => setTheme('dark')} />
-          ) : (
-            <IoMoon className="w-8" onClick={() => setTheme('light')} />
-          )}
-        </div>
         <div>
-          <Link target="_blank" href="https://github.com/kawakamimoeki/website">
+          <Link href="https://github.com/kawakamimoeki/website">
             <GoMarkGithub className="w-8" />
           </Link>
         </div>
