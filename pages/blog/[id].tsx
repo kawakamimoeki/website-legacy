@@ -49,7 +49,7 @@ export default function Post({ post }: { post: PostType }): JSX.Element {
       </Head>
       <Title>{post.title}</Title>
       <Date className="text-sm opacity-50" dateString={post.date.toString()} />
-      <Markdown className="prose" content={post.content}></Markdown>
+      <Markdown className="mt-10 prose" content={post.content}></Markdown>
       <Link
         className="underline decoration-yellow-400 decoration-4 underline-offset-4 font-bold block my-6 text-center"
         href="/blog"
