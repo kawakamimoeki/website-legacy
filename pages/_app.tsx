@@ -1,7 +1,6 @@
 import SEO from '../components/seo'
 import { ThemeProvider } from 'next-themes'
 import '../styles/globals.css'
-import '../styles/post.css'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
