@@ -1,5 +1,4 @@
 import Heading from '../../heading'
-import React from 'react'
 import Bio from '../../description'
 
 export default function Bios(): JSX.Element {
@@ -15,7 +14,7 @@ export default function Bios(): JSX.Element {
             <div
               dangerouslySetInnerHTML={{
                 __html:
-                  '<a href="https://www.colorfulcompany.co.jp" class="underline" target="_blank" rel="noopener">株式会社カラフルカンパニー</a>入社'
+                  '<a href="https://www.colorfulcompany.co.jp" class="underline">株式会社カラフルカンパニー</a>入社'
               }}
             />
           }
@@ -26,7 +25,7 @@ export default function Bios(): JSX.Element {
             <div
               dangerouslySetInnerHTML={{
                 __html:
-                  '<a href="https://bitjourney.com" class="underline" target="_blank" rel="noopener">株式会社ビットジャーニー</a>入社'
+                  '<a href="https://bitjourney.com" class="underline">株式会社ビットジャーニー</a>入社'
               }}
             />
           }

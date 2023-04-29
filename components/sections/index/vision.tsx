@@ -7,7 +7,7 @@ export default function Vision() {
     <div className="mb-5">
       <Heading>
         テクノロジーでみんなを
-        <span className="marker marker-sky">リードする</span>
+        <span className="">リードする</span>
       </Heading>
       <p>
         テクノロジーは、私の創造力を育ててくれました。

@@ -7,7 +7,7 @@ export default function Mainvisual() {
     <>
       <Title>
         <Link href="/">
-          <span className="marker marker-sky">Moeki Kawakami</span>
+          <span className="">Moeki Kawakami</span>
         </Link>
       </Title>
       <p>こんにちは。はじめまして。</p>

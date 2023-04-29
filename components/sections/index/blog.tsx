@@ -13,14 +13,11 @@ export default function Blog({ posts }: Props): JSX.Element {
   return (
     <div className="mb-5">
       <Heading>
-        <span className="marker marker-yellow">ブログ</span>
+        <span className="">ブログ</span>
       </Heading>
       <PostList posts={posts} />
       <div className="text-center">
-        <Link
-          className="underline decoration-yellow-300 decoration-4 underline-offset-4 font-bold"
-          href="/blog"
-          passHref>
+        <Link className="font-bold" href="/blog" passHref>
           もっと見る →
         </Link>
       </div>

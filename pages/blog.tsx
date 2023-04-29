@@ -26,7 +26,7 @@ export default function Blog({
       </Head>
       <section className="">
         <h2 className="text-2xl font-bold">
-          <span className="marker marker-yellow">ブログ</span>
+          <span className="">ブログ</span>
         </h2>
         <div className="mt-4">
           <PostList posts={allPostsData} />
