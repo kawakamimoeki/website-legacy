@@ -52,10 +52,7 @@ export default function Post({ post }: { post: PostType }): JSX.Element {
       <Markdown
         className="mt-10 prose mx-auto max-w-none"
         content={post.content}></Markdown>
-      <Link
-        className="underline decoration-yellow-400 decoration-4 underline-offset-4 font-bold block my-6 text-center"
-        href="/blog"
-        passHref>
+      <Link className="font-bold block my-6 text-center" href="/blog" passHref>
         ← 一覧に戻る
       </Link>
     </>
