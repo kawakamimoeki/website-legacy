@@ -12,11 +12,11 @@ export default function Mainvisual() {
       </Title>
       <p>こんにちは。はじめまして。</p>
       <Image
-        src="/img/moeki.jpg"
+        src="/img/moeki.png"
         alt="Moeki Kawakami"
         width="100"
         height="100"
-        className="inline rounded-full my-4 border-4 border-gray-700 bg-gray-700 dark:bg-white dark:border-white"
+        className="inline rounded-full my-4"
       />
     </>
   )

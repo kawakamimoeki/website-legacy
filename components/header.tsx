@@ -14,11 +14,11 @@ export default function Header() {
       <div className="flex items-center max-w-4xl mx-auto px-4">
         <Link href="/" passHref>
           <Image
-            src="/img/moeki.jpg"
+            src="/img/moeki.png"
             alt="Moeki Kawakami"
             width="40"
             height="40"
-            className="inline rounded-full my-3 border-2 border-gray-700 bg-gray-700 dark:bg-white dark:border-white"
+            className="inline rounded-full my-3"
           />
         </Link>
         <div className="grow"></div>
