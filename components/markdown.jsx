@@ -3,8 +3,10 @@ import remarkGfm from 'remark-gfm'
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx'
+import diff from 'react-syntax-highlighter/dist/cjs/languages/prism/diff'
 
 SyntaxHighlighter.registerLanguage('jsx', jsx)
+SyntaxHighlighter.registerLanguage('diff', diff)
 
 export default function Markdown({ className = null, limit = null, content }) {
   const syntaxTheme = oneDark
