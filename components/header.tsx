@@ -4,13 +4,7 @@ import { GoMarkGithub } from 'react-icons/go'
 
 export default function Header() {
   return (
-    <div
-      style={{
-        background: 'rbga(0,0,0,0.8)',
-        backdropFilter: 'blur(10px)',
-        WebkitBackdropFilter: 'blur(10px)'
-      }}
-      className="z-10 fixed w-full text-gray-900 dark:text-white">
+    <div className="z-10 fixed w-full text-gray-900 dark:text-white">
       <div className="flex items-center max-w-4xl mx-auto px-4">
         <Link href="/" passHref>
           <Image
