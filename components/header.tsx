@@ -12,7 +12,7 @@ export default function Header() {
             alt="Moeki Kawakami"
             width="40"
             height="40"
-            className="inline rounded-full my-3"
+            className="inline rounded-full my-3 border-2 border-gray-700 bg-gray-700"
           />
         </Link>
         <div className="grow"></div>

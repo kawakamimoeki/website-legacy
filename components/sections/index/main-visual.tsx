@@ -16,7 +16,7 @@ export default function Mainvisual() {
         alt="Moeki Kawakami"
         width="100"
         height="100"
-        className="inline rounded-full my-4"
+        className="inline rounded-full my-4 border-2 border-gray-700 bg-gray-700"
       />
     </>
   )
