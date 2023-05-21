@@ -1,21 +1,14 @@
 import React from 'react'
 import Heading from '../../heading'
-import Dotted from '../../dotted'
 
 export default function Vision() {
   return (
     <div className="mb-5">
       <Heading>
-        テクノロジーでみんなを
-        <span className="">リードする</span>
+        Technology Leads People
       </Heading>
       <p>
-        テクノロジーは、私の創造力を育ててくれました。
-        写真、音楽、ソフトウェア。コンピュータ技術がなければ、私は
-        頭の中のアイデアを現実にすることはできませんでした。
-        それは展示会がなくても多くの人に写真を見せることができる世界であり、
-        楽器を演奏しなくても音楽を作ることができる世界でした。
-        目標は、個人の創造力を支えるエンジニアになることです。
+      Technology has fostered my creativity. Photos, music, software. Without computer technology, I would not have been able to make the ideas in my head a reality. It is a world where I can show photos to many people without an exhibition, and a world where I can make music without playing an instrument. My goal is to become an engineer who supports individual creativity.
       </p>
     </div>
   )

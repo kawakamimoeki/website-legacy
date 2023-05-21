@@ -5,9 +5,9 @@ export default function Seo() {
   return (
     <Head>
       <title>Moeki Kawakami</title>
-      <meta name="description" content="こんにちは。はじめまして。" />
+      <meta name="description" content="Hello. I'm web developer in Japan." />
       <meta property="og:site_name" content="" />
-      <meta property="og:description" content="こんにちは。はじめまして。" />
+      <meta property="og:description" content="Hello. I'm web developer in Japan." />
       <meta property="og:image" content="https://moeki.dev/img/ogp.png" />
       <meta property="twitter:image" content="https://moeki.dev/img/ogp.png" />
       <meta name="twitter:card" content="summary_large_image" />

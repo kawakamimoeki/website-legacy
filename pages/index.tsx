@@ -29,7 +29,6 @@ export default function IndexPage(
       <MainVisual />
       <Vision />
       <Bios />
-      <Blog posts={props.posts.filter((p, i) => i < 4)} />
       <Contact />
     </>
   )
