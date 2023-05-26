@@ -10,7 +10,7 @@ export default function Mainvisual() {
           <span className="">Moeki Kawakami</span>
         </Link>
       </Title>
-      <p>{"Hello. I'm web developer in Japan."}</p>
+      <p>{"Hello. I'm a web developer in Japan."}</p>
       <Image
         src="/img/moeki.jpg"
         alt="Moeki Kawakami"
