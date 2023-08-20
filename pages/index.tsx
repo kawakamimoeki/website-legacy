@@ -24,7 +24,7 @@ export default function IndexPage(
       <Head>
         <meta property="og:url" content="https://moeki.dev/" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Moeki Kawakami" />
+        <meta property="og:title" content="@moekidev" />
       </Head>
       <MainVisual />
       <Vision />

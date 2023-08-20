@@ -4,7 +4,7 @@ import Head from 'next/head'
 export default function Seo() {
   return (
     <Head>
-      <title>Moeki Kawakami</title>
+      <title>@moekidev</title>
       <meta name="description" content="Hello. I'm a web developer in Japan." />
       <meta property="og:site_name" content="" />
       <meta property="og:description" content="Hello. I'm a web developer in Japan." />

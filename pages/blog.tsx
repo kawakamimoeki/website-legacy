@@ -19,10 +19,10 @@ export default function Blog({
   return (
     <>
       <Head>
-        <title>ブログ - Moeki Kawakami</title>
+        <title>ブログ - @moekidev</title>
         <meta property="og:url" content={`https://moeki.dev/blog`} />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Blog - Moeki Kawakami" />
+        <meta property="og:title" content="Blog - @moekidev" />
       </Head>
       <section className="">
         <h2 className="text-2xl font-bold">

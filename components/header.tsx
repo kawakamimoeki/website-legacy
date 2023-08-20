@@ -9,7 +9,7 @@ export default function Header() {
         <Link href="/" passHref>
           <Image
             src="/img/moeki.svg"
-            alt="Moeki Kawakami"
+            alt="@moekidev"
             width="40"
             height="40"
             className="inline rounded-full my-3 border-2 border-gray-700 bg-gray-700"

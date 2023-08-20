@@ -7,13 +7,13 @@ export default function Mainvisual() {
     <>
       <Title>
         <Link href="/">
-          <span className="">Moeki Kawakami</span>
+          <span className="">@moekidev</span>
         </Link>
       </Title>
       <p>{"Hello. I'm a web developer in Japan."}</p>
       <Image
         src="/img/moeki.svg"
-        alt="Moeki Kawakami"
+        alt="@moekidev"
         width="100"
         height="100"
         className="inline rounded-full my-4"
