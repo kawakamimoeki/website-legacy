@@ -8,7 +8,7 @@ export default function Header() {
       <div className="flex items-center max-w-4xl mx-auto px-4">
         <Link href="/" passHref>
           <Image
-            src="/img/moeki.svg"
+            src="/img/moeki.png"
             alt="@moekidev"
             width="40"
             height="40"

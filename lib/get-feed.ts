@@ -7,7 +7,7 @@ export const getFeed = async () => {
     description: 'Moeki Kawakami\'s blog',
     feed_url: 'https://moeki.dev/feed',
     site_url: 'https://moeki.dev',
-    image_url: 'https://moeki.dev/images/moeki.svg',
+    image_url: 'https://moeki.dev/images/moeki.png',
     managingEditor: 'hello@moeki.dev',
     webMaster: 'hello@moeki.dev',
     copyright: '2023 Moeki Kawakami',
