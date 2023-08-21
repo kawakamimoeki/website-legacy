@@ -29,6 +29,7 @@ export default function IndexPage(
       <MainVisual />
       <Vision />
       <Contact />
+      <Blog posts={props.posts} />
     </>
   )
 }

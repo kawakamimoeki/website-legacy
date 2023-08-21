@@ -13,14 +13,9 @@ export default function Blog({ posts }: Props): JSX.Element {
   return (
     <div className="mb-5">
       <Heading>
-        <span className="">ブログ</span>
+        <span className="">Blog</span>
       </Heading>
       <PostList posts={posts} />
-      <div className="text-center">
-        <Link className="font-bold" href="/blog" passHref>
-          もっと見る →
-        </Link>
-      </div>
     </div>
   )
 }

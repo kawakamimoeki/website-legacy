@@ -52,9 +52,6 @@ export default function Post({ post }: { post: PostType }): JSX.Element {
       <Markdown
         className="mt-10 prose mx-auto max-w-none"
         content={post.content}></Markdown>
-      <Link className="font-bold block my-6 text-center" href="/blog" passHref>
-        ← 一覧に戻る
-      </Link>
     </>
   )
 }

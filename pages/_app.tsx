@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
         style={{
           transition: '0.5s'
         }}>
-        <div className="mx-auto max-w-4xl p-4">
+        <div className="mx-auto max-w-3xl p-4">
           <Component {...pageProps} />
           <Footer />
         </div>
