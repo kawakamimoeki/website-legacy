@@ -8,8 +8,8 @@ export const getFeed = async () => {
     feed_url: 'https://moeki.dev/feed',
     site_url: 'https://moeki.dev',
     image_url: 'https://moeki.dev/images/moeki.svg',
-    managingEditor: 'Moeki Kawakami',
-    webMaster: 'Moeki Kawakami',
+    managingEditor: 'hello@moeki.dev',
+    webMaster: 'hello@moeki.dev',
     copyright: '2023 Moeki Kawakami',
     language: 'ja',
   });
