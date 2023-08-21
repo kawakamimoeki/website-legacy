@@ -28,7 +28,6 @@ export default function IndexPage(
       </Head>
       <MainVisual />
       <Vision />
-      <Bios />
       <Contact />
     </>
   )
