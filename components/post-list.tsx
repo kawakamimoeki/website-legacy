@@ -13,7 +13,7 @@ export default function PostList({ posts }) {
               {title}
             </Link>
           </h3>
-          <Date className="text-xs opacity-50" dateString={date}></Date>
+          <Date className="block text-xs opacity-50" dateString={date}></Date>
         </li>
       ))}
     </ul>
