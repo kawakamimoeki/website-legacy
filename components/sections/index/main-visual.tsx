@@ -12,7 +12,7 @@ export default function Mainvisual() {
       </Title>
       <p>{"Hello. I'm a web developer in Japan."}</p>
       <Image
-        src="/img/moeki.png"
+        src="/img/moeki.jpg"
         alt="@moekidev"
         width="100"
         height="100"
