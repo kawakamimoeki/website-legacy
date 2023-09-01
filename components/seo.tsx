@@ -12,7 +12,6 @@ export default function Seo() {
       <meta property="twitter:image" content="https://moeki.dev/img/ogp.png" />
       <meta name="twitter:card" content="summary_large_image" />
       <link rel="icon" type="image/x-icon" href="/img/favicon.ico"></link>
-      <link href="https://moeki.dev/feed" rel="alternate" title="moekidev" type="application/rss+xml"></link>
     </Head>
   )
 }
